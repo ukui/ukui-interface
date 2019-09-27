@@ -1,9 +1,9 @@
-# Kylin System API
+# ukui interface
 
 ## API结构
 初步计划API结构如下所示：
 ```
-Kylin System API结构
+ukui interface结构
 ├── 操作系统(OS)
 │   ├── 操作系统信息
 │   │   ├── 版本：大版本号、小版本号、补丁集编号、build日期
