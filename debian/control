@@ -9,10 +9,10 @@ Build-Depends: debhelper (>=12),
                automake,
                libtool,
                qtbase5-dev
-Standards-Version: 4.3.0
+Standards-Version: 4.4.0
 Homepage: https://github.com/ukui/ukui-interface
 Vcs-Browser: https://github.com/ukui/ukui-interface
-Vcs-Git: https://github.com/ukui/ukui-interface
+Vcs-Git: https://github.com/ukui/ukui-interface.git
 
 Package: libprint0
 Architecture: any

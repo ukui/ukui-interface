@@ -1,5 +1,5 @@
-ukui-interface (1.0.0-1) eoan; urgency=medium
+ukui-interface (1.0.0-1) unstable; urgency=medium
 
-  * Initial release. (Closes: #919549)
+  * Initial release. (Closes: #941256)
 
- -- handsome_feng <jianfengli@ubuntukylin.com>  Mon, 16 Sep 2019 10:10:28 +0800
+ -- handsome_feng <jianfengli@ubuntukylin.com>  Fri, 27 Sep 2019 16:19:07 +0800
