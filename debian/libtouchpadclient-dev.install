@@ -1,0 +1,3 @@
+usr/include/kylinsdk/kylin-touchpad-interface.h
+usr/lib/*/libtouchpadclient.a
+usr/lib/*/libtouchpadclient.so

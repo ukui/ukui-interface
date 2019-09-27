@@ -1,0 +1,4 @@
+usr/lib/*/libfontclient.so.*
+usr/bin/fontserver
+lib/systemd/system/font.service
+usr/share/dbus-1/services/cn.kylinos.font.service

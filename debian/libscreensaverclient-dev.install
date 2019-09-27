@@ -1,0 +1,3 @@
+usr/include/kylinsdk/kylin-screensaver-interface.h
+usr/lib/*/libscreensaverclient.a
+usr/lib/*/libscreensaverclient.so

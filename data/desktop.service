@@ -1,0 +1,12 @@
+[Unit]
+Description=desktop
+Documentation=man:systemd.special(7)
+
+[Service]
+Type=dbus
+BusName=cn.kylinos.desktop
+ExecStart=/usr/bin/desktopserver
+PrivateTmp=yes
+
+[Install]
+WantedBy=graphical.target

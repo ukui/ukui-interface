@@ -1,0 +1,4 @@
+usr/lib/*/libscreensaverclient.so.*
+usr/bin/screensaverserver
+lib/systemd/system/screensaver.service
+usr/share/dbus-1/services/cn.kylinos.screensaver.service

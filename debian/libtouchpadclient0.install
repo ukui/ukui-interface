@@ -1,0 +1,4 @@
+usr/lib/*/libtouchpadclient.so.*
+usr/bin/touchpadserver
+lib/systemd/system/touchpad.service
+usr/share/dbus-1/services/cn.kylinos.touchpad.service

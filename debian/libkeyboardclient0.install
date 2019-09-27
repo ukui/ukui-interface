@@ -1,0 +1,4 @@
+usr/lib/*/libkeyboardclient.so.*
+usr/bin/keyboardserver
+lib/systemd/system/keyboard.service
+usr/share/dbus-1/services/cn.kylinos.keyboard.service

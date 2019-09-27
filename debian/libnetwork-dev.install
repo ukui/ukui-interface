@@ -1,0 +1,3 @@
+usr/include/kylinsdk/kylin-network-interface.h
+usr/lib/*/libnetwork.a
+usr/lib/*/libnetwork.so

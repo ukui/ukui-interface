@@ -1,0 +1,3 @@
+usr/include/kylinsdk/kylin-gsettings-set.h
+usr/lib/*/libgsettings.a
+usr/lib/*/libgsettings.so

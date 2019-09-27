@@ -1,0 +1,3 @@
+usr/include/kylinsdk/kylin-session-interface.h
+usr/lib/*/libsessionclient.a
+usr/lib/*/libsessionclient.so

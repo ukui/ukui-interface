@@ -1,0 +1,12 @@
+[Unit]
+Description=background
+Documentation=man:systemd.special(7)
+
+[Service]
+Type=dbus
+BusName=cn.kylinos.background
+ExecStart=/usr/bin/backgroundserver
+PrivateTmp=yes
+
+[Install]
+WantedBy=graphical.target

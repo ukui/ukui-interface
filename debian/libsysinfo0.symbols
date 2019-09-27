@@ -1,0 +1,7 @@
+libsysinfo.so.0 libsysinfo0 #MINVER#
+* Build-Depends-Package: libsysinfo-dev
+ kylin_os_sysinfo_machine@Base 1.0.0
+ kylin_os_sysinfo_nodename@Base 1.0.0
+ kylin_os_sysinfo_release@Base 1.0.0
+ kylin_os_sysinfo_sysname@Base 1.0.0
+ kylin_os_sysinfo_version@Base 1.0.0

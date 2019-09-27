@@ -1,0 +1,12 @@
+[Unit]
+Description=peripherals-mouse
+Documentation=man:systemd.special(7)
+
+[Service]
+Type=dbus
+BusName=cn.kylinos.mouse
+ExecStart=/usr/bin/mouseserver
+PrivateTmp=yes
+
+[Install]
+WantedBy=graphical.target

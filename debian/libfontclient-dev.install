@@ -1,0 +1,3 @@
+usr/include/kylinsdk/kylin-font-interface.h
+usr/lib/*/libfontclient.a
+usr/lib/*/libfontclient.so

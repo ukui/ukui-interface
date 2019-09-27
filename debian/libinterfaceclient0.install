@@ -1,0 +1,4 @@
+usr/lib/*/libinterfaceclient.so.*
+usr/bin/interfaceserver
+lib/systemd/system/interface.service
+usr/share/dbus-1/services/cn.kylinos.interface.service

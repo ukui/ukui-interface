@@ -1,0 +1,3 @@
+usr/include/kylinsdk/kylin-keyboard-interface.h
+usr/lib/*/libkeyboardclient.a
+usr/lib/*/libkeyboardclient.so

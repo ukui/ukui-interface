@@ -1,0 +1,12 @@
+[Unit]
+Description=power
+Documentation=man:systemd.special(7)
+
+[Service]
+Type=dbus
+BusName=cn.kylinos.power
+ExecStart=/usr/bin/powerserver
+PrivateTmp=yes
+
+[Install]
+WantedBy=graphical.target

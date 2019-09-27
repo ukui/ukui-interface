@@ -1,0 +1,3 @@
+usr/include/kylinsdk/kylin-date-interface.h
+usr/lib/*/libdatesetting.a
+usr/lib/*/libdatesetting.so

@@ -1,0 +1,3 @@
+usr/include/kylinsdk/kylin-desktop-interface.h
+usr/lib/*/libdesktopclient.a
+usr/lib/*/libdesktopclient.so

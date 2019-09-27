@@ -1,0 +1,4 @@
+usr/lib/*/libmarcogeneralclient.so.*
+usr/bin/marcogeneralserver
+lib/systemd/system/marcogeneral.service
+usr/share/dbus-1/services/cn.kylinos.marcogeneral.service

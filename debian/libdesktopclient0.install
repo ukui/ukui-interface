@@ -1,0 +1,4 @@
+usr/lib/*/libdesktopclient.so.*
+usr/bin/desktopserver
+lib/systemd/system/desktop.service
+usr/share/dbus-1/services/cn.kylinos.desktop.service

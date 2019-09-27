@@ -1,0 +1,3 @@
+[D-BUS Service]
+Name=cn.kylinos.touchpad
+Exec=/usr/bin/touchpadserver

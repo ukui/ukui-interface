@@ -1,0 +1,3 @@
+usr/include/kylinsdk/kylin-defaultprograms-interface.h
+usr/lib/*/libdefaultprograms.a
+usr/lib/*/libdefaultprograms.so

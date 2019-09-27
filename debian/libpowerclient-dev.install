@@ -1,0 +1,3 @@
+usr/include/kylinsdk/kylin-power-interface.h
+usr/lib/*/libpowerclient.a
+usr/lib/*/libpowerclient.so

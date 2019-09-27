@@ -1,0 +1,12 @@
+[Unit]
+Description=marcogeneral
+Documentation=man:systemd.special(7)
+
+[Service]
+Type=dbus
+BusName=cn.kylinos.marcogeneral
+ExecStart=/usr/bin/marcogeneralserver
+PrivateTmp=yes
+
+[Install]
+WantedBy=graphical.target

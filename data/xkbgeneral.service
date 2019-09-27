@@ -1,0 +1,12 @@
+[Unit]
+Description=xkbgeneral
+Documentation=man:systemd.special(7)
+
+[Service]
+Type=dbus
+BusName=cn.kylinos.xkbgeneral
+ExecStart=/usr/bin/xkbgeneralserver
+PrivateTmp=yes
+
+[Install]
+WantedBy=graphical.target

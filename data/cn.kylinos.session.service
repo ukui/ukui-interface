@@ -1,0 +1,3 @@
+[D-BUS Service]
+Name=cn.kylinos.session
+Exec=/usr/bin/sessionserver

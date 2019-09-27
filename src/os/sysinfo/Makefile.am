@@ -1,0 +1,15 @@
+#Generata binary file 
+lib_LTLIBRARIES  = libsysinfo.la
+
+#gcc -wall: displays all the errors and warning information when compiling
+#gcc -g: add the debugging code when compiling 
+COMM_CFS = -Wall -g
+
+#Add the dependent source file for libsysinfo.la
+libsysinfo_la_SOURCES = kylin-sysinfo-interface.c \
+	$(NULL)
+
+#The header files that need to be installed
+include_HEADERS= kylin-sysinfo-interface.h \
+	$(NULL)
+

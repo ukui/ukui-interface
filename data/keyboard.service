@@ -1,0 +1,12 @@
+[Unit]
+Description=keyboard
+Documentation=man:systemd.special(7)
+
+[Service]
+Type=dbus
+BusName=cn.kylinos.keyboard
+ExecStart=/usr/bin/keyboardserver
+PrivateTmp=yes
+
+[Install]
+WantedBy=graphical.target
