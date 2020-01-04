@@ -3,13 +3,13 @@ Section: libs
 Priority: optional
 Maintainer: Kylin Team <team+kylin@tracker.debian.org>
 Uploaders: handsome_feng <jianfengli@ubuntukylin.com>
-Build-Depends: debhelper (>=12),
+Build-Depends: debhelper-compat (=12),
                libglib2.0-dev (>= 2.36),
                autoconf,
                automake,
                libtool,
                qtbase5-dev
-Standards-Version: 4.4.0
+Standards-Version: 4.4.1
 Homepage: https://github.com/ukui/ukui-interface
 Vcs-Browser: https://github.com/ukui/ukui-interface
 Vcs-Git: https://github.com/ukui/ukui-interface.git
@@ -27,8 +27,8 @@ Package: libprint-dev
 Architecture: any
 Section: libdevel
 Depends: ${shlibs:Depends},
-	${misc:Depends},
-	libprint0 (= ${binary:Version})
+         ${misc:Depends},
+         libprint0 (= ${binary:Version})
 Description: print interface
  UKUI interface provides the interface for system configuration
  and related libraries.
