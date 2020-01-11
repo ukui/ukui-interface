@@ -1,0 +1,3 @@
+usr/lib/ukui-interface/marcogeneralserver
+lib/systemd/system/marcogeneral.service
+usr/share/dbus-1/services/cn.kylinos.marcogeneral.service

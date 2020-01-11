@@ -1,3 +1,3 @@
 [D-BUS Service]
 Name=cn.kylinos.background
-Exec=/usr/bin/backgroundserver
+Exec=/usr/lib/ukui-interface/backgroundserver

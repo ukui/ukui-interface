@@ -1,0 +1,3 @@
+usr/lib/ukui-interface/touchpadserver
+lib/systemd/system/touchpad.service
+usr/share/dbus-1/services/cn.kylinos.touchpad.service

@@ -1,4 +1,1 @@
 usr/lib/*/libmouseclient.so.*
-usr/bin/mouseserver
-lib/systemd/system/mouse.service
-usr/share/dbus-1/services/cn.kylinos.mouse.service

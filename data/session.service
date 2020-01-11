@@ -5,7 +5,7 @@ Documentation=man:systemd.special(7)
 [Service]
 Type=dbus
 BusName=cn.kylinos.session
-ExecStart=/usr/bin/sessionserver
+ExecStart=/usr/lib/ukui-interface/sessionserver
 PrivateTmp=yes
 
 [Install]

@@ -1,0 +1,3 @@
+usr/lib/ukui-interface/keyboardserver
+lib/systemd/system/keyboard.service
+usr/share/dbus-1/services/cn.kylinos.keyboard.service

@@ -1,4 +1,1 @@
 usr/lib/*/libsessionclient.so.*
-usr/bin/sessionserver
-lib/systemd/system/session.service
-usr/share/dbus-1/services/cn.kylinos.session.service

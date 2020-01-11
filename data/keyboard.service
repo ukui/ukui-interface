@@ -5,7 +5,7 @@ Documentation=man:systemd.special(7)
 [Service]
 Type=dbus
 BusName=cn.kylinos.keyboard
-ExecStart=/usr/bin/keyboardserver
+ExecStart=/usr/lib/ukui-interface/keyboardserver
 PrivateTmp=yes
 
 [Install]

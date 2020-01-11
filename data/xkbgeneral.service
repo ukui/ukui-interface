@@ -5,7 +5,7 @@ Documentation=man:systemd.special(7)
 [Service]
 Type=dbus
 BusName=cn.kylinos.xkbgeneral
-ExecStart=/usr/bin/xkbgeneralserver
+ExecStart=/usr/lib/ukui-interface/xkbgeneralserver
 PrivateTmp=yes
 
 [Install]

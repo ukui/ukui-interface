@@ -1,3 +1,3 @@
-usr/include/kylinsdk/kylin-background-interface.h
+usr/include/ukuisdk/kylin-background-interface.h
 usr/lib/*/libbackgroundclient.a
 usr/lib/*/libbackgroundclient.so

@@ -1,3 +1,3 @@
-usr/include/kylinsdk/kylin-interface-interface.h
+usr/include/ukuisdk/kylin-interface-interface.h
 usr/lib/*/libinterfaceclient.a
 usr/lib/*/libinterfaceclient.so

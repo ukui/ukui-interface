@@ -5,7 +5,7 @@ Documentation=man:systemd.special(7)
 [Service]
 Type=dbus
 BusName=cn.kylinos.screensaver
-ExecStart=/usr/bin/screensaverserver
+ExecStart=/usr/lib/ukui-interface/screensaverserver
 PrivateTmp=yes
 
 [Install]

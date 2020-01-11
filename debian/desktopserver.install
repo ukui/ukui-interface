@@ -1,0 +1,3 @@
+usr/lib/ukui-interface/desktopserver
+lib/systemd/system/desktop.service
+usr/share/dbus-1/services/cn.kylinos.desktop.service

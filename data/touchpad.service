@@ -5,7 +5,7 @@ Documentation=man:systemd.special(7)
 [Service]
 Type=dbus
 BusName=cn.kylinos.touchpad
-ExecStart=/usr/bin/touchpadserver
+ExecStart=/usr/lib/ukui-interface/touchpadserver
 PrivateTmp=yes
 
 [Install]

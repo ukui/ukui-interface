@@ -5,7 +5,7 @@ Documentation=man:systemd.special(7)
 [Service]
 Type=dbus
 BusName=cn.kylinos.power
-ExecStart=/usr/bin/powerserver
+ExecStart=/usr/lib/ukui-interface/powerserver
 PrivateTmp=yes
 
 [Install]

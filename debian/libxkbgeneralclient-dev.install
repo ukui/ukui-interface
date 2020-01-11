@@ -1,3 +1,3 @@
-usr/include/kylinsdk/kylin-xkbgeneral-interface.h
+usr/include/ukuisdk/kylin-xkbgeneral-interface.h
 usr/lib/*/libxkbgeneralclient.a
 usr/lib/*/libxkbgeneralclient.so

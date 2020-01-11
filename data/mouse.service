@@ -5,7 +5,7 @@ Documentation=man:systemd.special(7)
 [Service]
 Type=dbus
 BusName=cn.kylinos.mouse
-ExecStart=/usr/bin/mouseserver
+ExecStart=/usr/lib/ukui-interface/mouseserver
 PrivateTmp=yes
 
 [Install]

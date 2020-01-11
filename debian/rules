@@ -14,4 +14,4 @@ export DEB_BUILD_MAINT_OPTIONS = hardening=+all
 override_dh_auto_configure:
 	./autogen.sh
 	dh_auto_configure -- \
-		--includedir=/usr/include/kylinsdk
+		--includedir=/usr/include/ukuisdk --bindir=/usr/lib/ukui-interface

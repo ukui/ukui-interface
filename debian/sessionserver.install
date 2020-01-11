@@ -1,0 +1,3 @@
+usr/lib/ukui-interface/sessionserver
+lib/systemd/system/session.service
+usr/share/dbus-1/services/cn.kylinos.session.service

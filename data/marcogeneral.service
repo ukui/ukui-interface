@@ -5,7 +5,7 @@ Documentation=man:systemd.special(7)
 [Service]
 Type=dbus
 BusName=cn.kylinos.marcogeneral
-ExecStart=/usr/bin/marcogeneralserver
+ExecStart=/usr/lib/ukui-interface/marcogeneralserver
 PrivateTmp=yes
 
 [Install]
