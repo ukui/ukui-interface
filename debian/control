@@ -10,6 +10,7 @@ Build-Depends: debhelper-compat (=12),
                libtool,
                qtbase5-dev
 Standards-Version: 4.4.1
+Rules-Requires-Root: no
 Homepage: https://github.com/ukui/ukui-interface
 Vcs-Browser: https://github.com/ukui/ukui-interface
 Vcs-Git: https://github.com/ukui/ukui-interface.git
@@ -252,7 +253,7 @@ Depends: ${shlibs:Depends},
          ${misc:Depends},
         libprint0 (= ${binary:Version}),
         libgsettings0 (= ${binary:Version})
-Description: keyboard settings service process.
+Description: keyboard settings service process
  UKUI interface provides the interface for system configuration
  and related libraries.
  .
