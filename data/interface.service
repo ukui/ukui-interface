@@ -7,6 +7,3 @@ Type=dbus
 BusName=cn.kylinos.interface
 ExecStart=/usr/lib/ukui-interface/interfaceserver
 PrivateTmp=yes
-
-[Install]
-WantedBy=graphical.target
