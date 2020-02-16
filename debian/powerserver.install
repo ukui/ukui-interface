@@ -1,3 +1,2 @@
 usr/lib/ukui-interface/powerserver
-lib/systemd/system/power.service
 usr/share/dbus-1/services/cn.kylinos.power.service

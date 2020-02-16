@@ -1,3 +1,2 @@
 usr/lib/ukui-interface/xkbgeneralserver
-lib/systemd/system/xkbgeneral.service
 usr/share/dbus-1/services/cn.kylinos.xkbgeneral.service

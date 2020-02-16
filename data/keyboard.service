@@ -1,9 +1,0 @@
-[Unit]
-Description=keyboard
-Documentation=man:systemd.special(7)
-
-[Service]
-Type=dbus
-BusName=cn.kylinos.keyboard
-ExecStart=/usr/lib/ukui-interface/keyboardserver
-PrivateTmp=yes

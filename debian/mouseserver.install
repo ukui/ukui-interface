@@ -1,3 +1,2 @@
 usr/lib/ukui-interface/mouseserver
-lib/systemd/system/mouse.service
 usr/share/dbus-1/services/cn.kylinos.mouse.service

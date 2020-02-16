@@ -1,3 +1,2 @@
 usr/lib/ukui-interface/interfaceserver
-lib/systemd/system/interface.service
 usr/share/dbus-1/services/cn.kylinos.interface.service

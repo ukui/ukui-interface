@@ -1,3 +1,2 @@
 usr/lib/ukui-interface/backgroundserver
-lib/systemd/system/background.service
 usr/share/dbus-1/services/cn.kylinos.background.service
