@@ -15,7 +15,7 @@ Homepage: https://github.com/ukui/ukui-interface
 Vcs-Browser: https://github.com/ukui/ukui-interface
 Vcs-Git: https://github.com/ukui/ukui-interface.git
 
-Package: libprint0
+Package: libukui-print0
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: print module
@@ -24,19 +24,19 @@ Description: print module
  .
  The package contains print libraries.
 
-Package: libprint-dev
+Package: libukui-print-dev
 Architecture: any
 Section: libdevel
 Depends: ${shlibs:Depends},
          ${misc:Depends},
-         libprint0 (= ${binary:Version})
+         libukui-print0 (= ${binary:Version})
 Description: print interface
  UKUI interface provides the interface for system configuration
  and related libraries.
  .
  The package contains development files for printing.
 
-Package: libgsettings0
+Package: libukui-gsettings0
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: application settings module
@@ -45,56 +45,56 @@ Description: application settings module
  .
  The package contains application settings libraries.
 
-Package: libgsettings-dev
+Package: libukui-gsettings-dev
 Architecture: any
 Section: libdevel
 Depends: ${shlibs:Depends},
 	${misc:Depends},
-	libgsettings0 (= ${binary:Version})
+	libukui-gsettings0 (= ${binary:Version})
 Description: application settings interface
  UKUI interface provides the interface for system configuration
  and related libraries.
  .
  The package contains development files for application settings.
 
-Package: backgroundserver
+Package: ukui-backgroundserver
 Architecture: any
 Depends: ${shlibs:Depends},
         ${misc:Depends},
-        libprint0 (= ${binary:Version}),
-        libgsettings0 (= ${binary:Version})
+        libukui-print0 (= ${binary:Version}),
+        libukui-gsettings0 (= ${binary:Version})
 Description: background settings service process
  UKUI interface provides the interface for system configuration
  and related libraries.
  .
  The package contains background settings service process.
 
-Package: libbackgroundclient0
+Package: libukui-backgroundclient0
 Architecture: any
 Depends: ${shlibs:Depends},
 	${misc:Depends},
-	libprint0 (= ${binary:Version}),
-	libgsettings0 (= ${binary:Version}),
-	backgroundserver (= ${binary:Version})
+	libukui-print0 (= ${binary:Version}),
+	libukui-gsettings0 (= ${binary:Version}),
+	ukui-backgroundserver (= ${binary:Version})
 Description: background settings module
  UKUI interface provides the interface for system configuration
  and related libraries.
  .
  The package contains background settings libraries.
 
-Package: libbackgroundclient-dev
+Package: libukui-backgroundclient-dev
 Architecture: any
 Section: libdevel
 Depends: ${shlibs:Depends},
 	${misc:Depends},
-	libbackgroundclient0 (= ${binary:Version})
+	libukui-backgroundclient0 (= ${binary:Version})
 Description: background settings interfaces
  UKUI interface provides the interface for system configuration
  and related libraries.
  .
  The package contains development files for background settings.
 
-Package: libdatesetting0
+Package: libukui-datesetting0
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: date settings module
@@ -103,19 +103,19 @@ Description: date settings module
  .
  The package contains date settings libraries.
 
-Package: libdatesetting-dev
+Package: libukui-datesetting-dev
 Architecture: any
 Section: libdevel
 Depends: ${shlibs:Depends},
         ${misc:Depends},
-        libdatesetting0 (= ${binary:Version})
+        libukui-datesetting0 (= ${binary:Version})
 Description: date settings interfaces
  UKUI interface provides the interface for system configuration
  and related libraries.
  .
  The package contains development files for date settings.
 
-Package: libdefaultprograms0
+Package: libukui-defaultprograms0
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: default programs settings module
@@ -124,167 +124,167 @@ Description: default programs settings module
  .
  The package contains default programs settings libraries.
 
-Package: libdefaultprograms-dev
+Package: libukui-defaultprograms-dev
 Architecture: any
 Section: libdevel
 Depends: ${shlibs:Depends},
         ${misc:Depends},
-        libdefaultprograms0 (= ${binary:Version})
+        libukui-defaultprograms0 (= ${binary:Version})
 Description: default programs settings interfaces
  UKUI interface provides the interface for system configuration
  and related libraries.
  .
  The package contains development files for default programs settings.
 
-Package: desktopserver
+Package: ukui-desktopserver
 Architecture: any
 Depends: ${shlibs:Depends},
         ${misc:Depends},
-        libprint0 (= ${binary:Version}),
-        libgsettings0 (= ${binary:Version})
+        libukui-print0 (= ${binary:Version}),
+        libukui-gsettings0 (= ${binary:Version})
 Description: desktop settings service process
  UKUI interface provides the interface for system configuration
  and related libraries.
  .
  The package contains desktop settings service process.
 
-Package: libdesktopclient0
+Package: libukui-desktopclient0
 Architecture: any
 Depends: ${shlibs:Depends},
 	${misc:Depends},
-	libprint0 (= ${binary:Version}),
-	libgsettings0 (= ${binary:Version}),
-	desktopserver (= ${binary:Version})
+	libukui-print0 (= ${binary:Version}),
+	libukui-gsettings0 (= ${binary:Version}),
+	ukui-desktopserver (= ${binary:Version})
 Description: desktop settings module
  UKUI interface provides the interface for system configuration
  and related libraries.
  .
  The package contains desktop settings libraries.
 
-Package: libdesktopclient-dev
+Package: libukui-desktopclient-dev
 Architecture: any
 Section: libdevel
 Depends: ${shlibs:Depends},
         ${misc:Depends},
-        libdesktopclient0 (= ${binary:Version})
+        libukui-desktopclient0 (= ${binary:Version})
 Description: desktop settings interfaces
  UKUI interface provides the interface for system configuration
  and related libraries.
  .
  The package contains development files for desktop settings.
 
-Package: fontserver
+Package: ukui-fontserver
 Architecture: any
 Depends: ${shlibs:Depends},
          ${misc:Depends},
-        libprint0 (= ${binary:Version}),
-        libgsettings0 (= ${binary:Version})
+        libukui-print0 (= ${binary:Version}),
+        libukui-gsettings0 (= ${binary:Version})
 Description: font settings service process
  UKUI interface provides the interface for system configuration
  and related libraries.
  .
  The package contains font settings service process.
 
-Package: libfontclient0
+Package: libukui-fontclient0
 Architecture: any
 Depends: ${shlibs:Depends},
 	 ${misc:Depends},
-	libprint0 (= ${binary:Version}),
-	libgsettings0 (= ${binary:Version}),
-	fontserver (= ${binary:Version})
+	libukui-print0 (= ${binary:Version}),
+	libukui-gsettings0 (= ${binary:Version}),
+	ukui-fontserver (= ${binary:Version})
 Description: font settings module
  UKUI interface provides the interface for system configuration
  and related libraries.
  .
  The package contains font settings libraries.
 
-Package: libfontclient-dev
+Package: libukui-fontclient-dev
 Architecture: any
 Section: libdevel
 Depends: ${shlibs:Depends},
         ${misc:Depends},
-        libfontclient0 (= ${binary:Version})
+        libukui-fontclient0 (= ${binary:Version})
 Description: font settings interfaces
  UKUI interface provides the interface for system configuration
  and related libraries.
  .
  The package contains development files for font settings.
 
-Package: interfaceserver
+Package: ukui-interfaceserver
 Architecture: any
 Depends: ${shlibs:Depends},
         ${misc:Depends},
-        libprint0 (= ${binary:Version}),
-        libgsettings0 (= ${binary:Version})
+        libukui-print0 (= ${binary:Version}),
+        libukui-gsettings0 (= ${binary:Version})
 Description: interface settings service process
  UKUI interface provides the interface for system configuration
  and related libraries.
  .
  The package contains interface settings service process.
 
-Package: libinterfaceclient0
+Package: libukui-interfaceclient0
 Architecture: any
 Depends: ${shlibs:Depends},
 	${misc:Depends},
-	libprint0 (= ${binary:Version}),
-	libgsettings0 (= ${binary:Version}),
-	interfaceserver (= ${binary:Version})
+	libukui-print0 (= ${binary:Version}),
+	libukui-gsettings0 (= ${binary:Version}),
+	ukui-interfaceserver (= ${binary:Version})
 Description: interface settings module
  UKUI interface provides the interface for system configuration
  and related libraries.
  .
  The package contains interface settings libraries.
 
-Package: libinterfaceclient-dev
+Package: libukui-interfaceclient-dev
 Architecture: any
 Section: libdevel
 Depends: ${shlibs:Depends},
         ${misc:Depends},
-        libinterfaceclient0 (= ${binary:Version})
+        libukui-interfaceclient0 (= ${binary:Version})
 Description: interface settings interfaces
  UKUI interface provides the interface for system configuration
  and related libraries.
  .
  The package contains development files for interface settings.
 
-Package: keyboardserver
+Package: ukui-keyboardserver
 Architecture: any
 Depends: ${shlibs:Depends},
          ${misc:Depends},
-        libprint0 (= ${binary:Version}),
-        libgsettings0 (= ${binary:Version})
+        libukui-print0 (= ${binary:Version}),
+        libukui-gsettings0 (= ${binary:Version})
 Description: keyboard settings service process
  UKUI interface provides the interface for system configuration
  and related libraries.
  .
  The package contains keyboard settings service process.
 
-Package: libkeyboardclient0
+Package: libukui-keyboardclient0
 Architecture: any
 Depends: ${shlibs:Depends},
 	 ${misc:Depends},
-	libprint0 (= ${binary:Version}),
-	libgsettings0 (= ${binary:Version}),
-	keyboardserver (= ${binary:Version})
+	libukui-print0 (= ${binary:Version}),
+	libukui-gsettings0 (= ${binary:Version}),
+	ukui-keyboardserver (= ${binary:Version})
 Description: keyboard settings module
  UKUI interface provides the interface for system configuration
  and related libraries.
  .
  The package contains keyboard settings libraries.
 
-Package: libkeyboardclient-dev
+Package: libukui-keyboardclient-dev
 Architecture: any
 Section: libdevel
 Depends: ${shlibs:Depends},
         ${misc:Depends},
-        libkeyboardclient0 (= ${binary:Version})
+        libukui-keyboardclient0 (= ${binary:Version})
 Description: keyboard settings interfaces
  UKUI interface provides the interface for system configuration
  and related libraries.
  .
  The package contains development files for keyboard settings.
 
-Package: marcogeneralserver
+Package: ukui-marcogeneralserver
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: marcogeneral settings service process
@@ -293,30 +293,30 @@ Description: marcogeneral settings service process
  .
  The package contains marcogeneral settings service process.
 
-Package: libmarcogeneralclient0
+Package: libukui-marcogeneralclient0
 Architecture: any
 Depends: ${shlibs:Depends},
 	${misc:Depends},
-	marcogeneralserver (= ${binary:Version})
+	ukui-marcogeneralserver (= ${binary:Version})
 Description: marcogeneral settings module
  UKUI interface provides the interface for system configuration
  and related libraries.
  .
  The package contains marcogeneral settings libraries.
 
-Package: libmarcogeneralclient-dev
+Package: libukui-marcogeneralclient-dev
 Architecture: any
 Section: libdevel
 Depends: ${shlibs:Depends},
         ${misc:Depends},
-        libmarcogeneralclient0 (= ${binary:Version})
+        libukui-marcogeneralclient0 (= ${binary:Version})
 Description: marcogeneral settings interfaces
  UKUI interface provides the interface for system configuration
  and related libraries.
  .
  The package contains development files for marcogeneral settings.
 
-Package: mouseserver
+Package: ukui-mouseserver
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: mouse settings service process
@@ -325,30 +325,30 @@ Description: mouse settings service process
  .
  The package contains mouse settings service process.
 
-Package: libmouseclient0
+Package: libukui-mouseclient0
 Architecture: any
 Depends: ${shlibs:Depends},
 	${misc:Depends},
-	mouseserver (= ${binary:Version})
+	ukui-mouseserver (= ${binary:Version})
 Description: mouse settings module
  UKUI interface provides the interface for system configuration
  and related libraries.
  .
  The package contains mouse settings libraries.
 
-Package: libmouseclient-dev
+Package: libukui-mouseclient-dev
 Architecture: any
 Section: libdevel
 Depends: ${shlibs:Depends},
         ${misc:Depends},
-        libmouseclient0 (= ${binary:Version})
+        libukui-mouseclient0 (= ${binary:Version})
 Description: mouse settings interfaces
  UKUI interface provides the interface for system configuration
  and related libraries.
  .
  The package contains development files for mouse settings.
 
-Package: libnetwork0
+Package: libukui-network0
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: network settings module
@@ -357,56 +357,56 @@ Description: network settings module
  .
  The package contains network settings libraries.
 
-Package: libnetwork-dev
+Package: libukui-network-dev
 Architecture: any
 Section: libdevel
 Depends: ${shlibs:Depends},
         ${misc:Depends},
-        libnetwork0 (= ${binary:Version})
+        libukui-network0 (= ${binary:Version})
 Description: network settings interfaces
  UKUI interface provides the interface for system configuration
  and related libraries.
  .
  The package contains development files for network settings.
 
-Package: powerserver
+Package: ukui-powerserver
 Architecture: any
 Depends: ${shlibs:Depends},
         ${misc:Depends},
-        libprint0 (= ${binary:Version}),
-        libgsettings0 (= ${binary:Version})
+        libukui-print0 (= ${binary:Version}),
+        libukui-gsettings0 (= ${binary:Version})
 Description: power settings service process
  UKUI interface provides the interface for system configuration
  and related libraries.
  .
  The package contains power settings service process.
 
-Package: libpowerclient0
+Package: libukui-powerclient0
 Architecture: any
 Depends: ${shlibs:Depends},
 	${misc:Depends},
-	libprint0 (= ${binary:Version}),
-	libgsettings0 (= ${binary:Version}),
-	powerserver (= ${binary:Version})
+	libukui-print0 (= ${binary:Version}),
+	libukui-gsettings0 (= ${binary:Version}),
+	ukui-powerserver (= ${binary:Version})
 Description: power settings module
  UKUI interface provides the interface for system configuration
  and related libraries.
  .
  The package contains power settings libraries.
 
-Package: libpowerclient-dev
+Package: libukui-powerclient-dev
 Architecture: any
 Section: libdevel
 Depends: ${shlibs:Depends},
         ${misc:Depends},
-        libpowerclient0 (= ${binary:Version})
+        libukui-powerclient0 (= ${binary:Version})
 Description: power settings interfaces
  UKUI interface provides the interface for system configuration
  and related libraries.
  .
  The package contains development files for power settings.
 
-Package: screensaverserver
+Package: ukui-screensaverserver
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: screensaver settings service process
@@ -415,30 +415,30 @@ Description: screensaver settings service process
  .
  The package contains screensaver settings service process.
 
-Package: libscreensaverclient0
+Package: libukui-screensaverclient0
 Architecture: any
 Depends: ${shlibs:Depends},
 	${misc:Depends},
-	screensaverserver (= ${binary:Version})
+	ukui-screensaverserver (= ${binary:Version})
 Description: screensaver settings module
  UKUI interface provides the interface for system configuration
  and related libraries.
  .
  The package contains screensaver settings libraries.
 
-Package: libscreensaverclient-dev
+Package: libukui-screensaverclient-dev
 Architecture: any
 Section: libdevel
 Depends: ${shlibs:Depends},
         ${misc:Depends},
-        libscreensaverclient0 (= ${binary:Version})
+        libukui-screensaverclient0 (= ${binary:Version})
 Description: screensaver settings interfaces
  UKUI interface provides the interface for system configuration
  and related libraries.
  .
  The package contains development files for screensaver settings.
 
-Package: sessionserver
+Package: ukui-sessionserver
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: session settings service process
@@ -447,30 +447,30 @@ Description: session settings service process
  .
  The package contains session settings service process.
 
-Package: libsessionclient0
+Package: libukui-sessionclient0
 Architecture: any
 Depends: ${shlibs:Depends},
 	${misc:Depends},
-	sessionserver (= ${binary:Version})
+	ukui-sessionserver (= ${binary:Version})
 Description: session settings module
  UKUI interface provides the interface for system configuration
  and related libraries.
  .
  The package contains session settings libraries.
 
-Package: libsessionclient-dev
+Package: libukui-sessionclient-dev
 Architecture: any
 Section: libdevel
 Depends: ${shlibs:Depends},
         ${misc:Depends},
-        libsessionclient0 (= ${binary:Version})
+        libukui-sessionclient0 (= ${binary:Version})
 Description: session settings interfaces
  UKUI interface provides the interface for system configuration
  and related libraries.
  .
  The package contains development files for session settings.
 
-Package: libsubversion0
+Package: libukui-subversion0
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: Subversion check module
@@ -479,19 +479,19 @@ Description: Subversion check module
  .
  The package contains Subversion check libraries.
 
-Package: libsubversion-dev
+Package: libukui-subversion-dev
 Architecture: any
 Section: libdevel
 Depends: ${shlibs:Depends},
         ${misc:Depends},
-        libsubversion0 (= ${binary:Version})
+        libukui-subversion0 (= ${binary:Version})
 Description: Subversion check interfaces
  UKUI interface provides the interface for system configuration
  and related libraries.
  .
  The package contains development files for Subversion check.
 
-Package: libsysinfo0
+Package: libukui-sysinfo0
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: system information gettings module
@@ -500,56 +500,56 @@ Description: system information gettings module
  .
  The package contains system information gettings libraries.
 
-Package: libsysinfo-dev
+Package: libukui-sysinfo-dev
 Architecture: any
 Section: libdevel
 Depends: ${shlibs:Depends},
         ${misc:Depends},
-        libsysinfo0 (= ${binary:Version})
+        libukui-sysinfo0 (= ${binary:Version})
 Description: system information gettings interfaces
  UKUI interface provides the interface for system configuration
  and related libraries.
  .
  The package contains development files for system information gettings.
 
-Package: touchpadserver
+Package: ukui-touchpadserver
 Architecture: any
 Depends: ${shlibs:Depends},
         ${misc:Depends},
-        libprint0 (= ${binary:Version}),
-        libgsettings0 (= ${binary:Version})
+        libukui-print0 (= ${binary:Version}),
+        libukui-gsettings0 (= ${binary:Version})
 Description: touchpad settings service process
  UKUI interface provides the interface for system configuration
  and related libraries.
  .
  The package contains touchpad settings service process.
 
-Package: libtouchpadclient0
+Package: libukui-touchpadclient0
 Architecture: any
 Depends: ${shlibs:Depends},
 	${misc:Depends},
-	libprint0 (= ${binary:Version}),
-	libgsettings0 (= ${binary:Version}),
-	touchpadserver (= ${binary:Version})
+	libukui-print0 (= ${binary:Version}),
+	libukui-gsettings0 (= ${binary:Version}),
+	ukui-touchpadserver (= ${binary:Version})
 Description: touchpad settings module
  UKUI interface provides the interface for system configuration
  and related libraries.
  .
  The package contains touchpad settings libraries.
 
-Package: libtouchpadclient-dev
+Package: libukui-touchpadclient-dev
 Architecture: any
 Section: libdevel
 Depends: ${shlibs:Depends},
         ${misc:Depends},
-        libtouchpadclient0 (= ${binary:Version})
+        libukui-touchpadclient0 (= ${binary:Version})
 Description: touchpad settings interfaces
  UKUI interface provides the interface for system configuration
  and related libraries.
  .
  The package contains development files for touchpad settings.
 
-Package: libusersetting0
+Package: libukui-usersetting0
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: user settings module
@@ -558,19 +558,19 @@ Description: user settings module
  .
  The package contains user settings libraries.
 
-Package: libusersetting-dev
+Package: libukui-usersetting-dev
 Architecture: any
 Section: libdevel
 Depends: ${shlibs:Depends},
         ${misc:Depends},
-        libusersetting0 (= ${binary:Version})
+        libukui-usersetting0 (= ${binary:Version})
 Description: user settings interfaces
  UKUI interface provides the interface for system configuration
  and related libraries.
  .
  The package contains development files for user settings.
 
-Package: xkbgeneralserver
+Package: ukui-xkbgeneralserver
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: xkbgeneral settings service process
@@ -579,23 +579,23 @@ Description: xkbgeneral settings service process
  .
  The package contains xkbgeneral settings service process.
 
-Package: libxkbgeneralclient0
+Package: libukui-xkbgeneralclient0
 Architecture: any
 Depends: ${shlibs:Depends},
 	${misc:Depends},
-	xkbgeneralserver (= ${binary:Version})
+	ukui-xkbgeneralserver (= ${binary:Version})
 Description: xkbgeneral settings module
  UKUI interface provides the interface for system configuration
  and related libraries.
  .
  The package contains xkbgeneral settings libraries.
 
-Package: libxkbgeneralclient-dev
+Package: libukui-xkbgeneralclient-dev
 Architecture: any
 Section: libdevel
 Depends: ${shlibs:Depends},
         ${misc:Depends},
-        libxkbgeneralclient0 (= ${binary:Version})
+        libukui-xkbgeneralclient0 (= ${binary:Version})
 Description: xkbgeneral settings interfaces
  UKUI interface provides the interface for system configuration
  and related libraries.

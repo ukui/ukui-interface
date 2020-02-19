@@ -1,8 +1,0 @@
-libdatesetting.so.0 libdatesetting0 #MINVER#
-* Build-Depends-Package: libdatesetting-dev
- init_timedb@Base 1.0.0
- kylin_date_dt_chgdt@Base 1.0.0
- kylin_date_dt_sethrfmt@Base 1.0.0
- kylin_date_dt_setnetsync@Base 1.0.0
- kylin_date_dt_settz@Base 1.0.0
- timedata@Base 1.0.0

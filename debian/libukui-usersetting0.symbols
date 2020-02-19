@@ -1,0 +1,8 @@
+libukui-usersetting.so.0 libukui-usersetting0 #MINVER#
+* Build-Depends-Package: libukui-usersetting-dev
+ kylin_accounts_user_autologin@Base 1.0.0
+ kylin_accounts_user_chgusericon@Base 1.0.0
+ kylin_accounts_user_chguserpasswd@Base 1.0.0
+ kylin_accounts_user_chgusertype@Base 1.0.0
+ kylin_accounts_user_createuser@Base 1.0.0
+ kylin_accounts_user_deleteuser@Base 1.0.0

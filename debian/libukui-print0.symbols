@@ -1,0 +1,9 @@
+libukui-print.so.0 libukui-print0 #MINVER#
+* Build-Depends-Package: libukui-print-dev
+ print_by_level@Base 1.0.0
+ print_debug@Base 1.0.0
+ print_error@Base 1.0.0
+ print_info@Base 1.0.0
+ print_notice@Base 1.0.0
+ print_warning@Base 1.0.0
+ vprint_by_level@Base 1.0.0

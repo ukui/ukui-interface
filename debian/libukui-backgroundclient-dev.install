@@ -1,0 +1,3 @@
+usr/include/ukuisdk/kylin-background-interface.h
+usr/lib/*/libukui-backgroundclient.a
+usr/lib/*/libukui-backgroundclient.so
