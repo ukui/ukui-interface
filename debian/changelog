@@ -1,6 +1,7 @@
 ukui-interface (1.0.0-2) UNRELEASED; urgency=low
 
   * Set upstream metadata fields: Bug-Database, Bug-Submit.
+  * Update standards version to 4.5.0, no changes needed.
 
  -- Debian Janitor <janitor@jelmer.uk>  Thu, 11 Jun 2020 02:24:40 -0000
 
