@@ -2,6 +2,24 @@ ukui-interface (1.0.0-2) UNRELEASED; urgency=low
 
   * Set upstream metadata fields: Bug-Database, Bug-Submit.
   * Update standards version to 4.5.0, no changes needed.
+  * Apply multi-arch hints.
+    + libukui-backgroundclient-dev, libukui-backgroundclient0,
+      libukui-datesetting-dev, libukui-datesetting0,
+      libukui-defaultprograms-dev, libukui-defaultprograms0,
+      libukui-desktopclient-dev, libukui-desktopclient0, libukui-fontclient-dev,
+      libukui-fontclient0, libukui-gsettings-dev, libukui-gsettings0,
+      libukui-interfaceclient-dev, libukui-interfaceclient0,
+      libukui-keyboardclient-dev, libukui-keyboardclient0,
+      libukui-marcogeneralclient-dev, libukui-marcogeneralclient0,
+      libukui-mouseclient-dev, libukui-mouseclient0, libukui-network-dev,
+      libukui-network0, libukui-powerclient-dev, libukui-powerclient0,
+      libukui-print-dev, libukui-print0, libukui-screensaverclient-dev,
+      libukui-screensaverclient0, libukui-sessionclient-dev,
+      libukui-sessionclient0, libukui-subversion-dev, libukui-subversion0,
+      libukui-sysinfo-dev, libukui-sysinfo0, libukui-touchpadclient-dev,
+      libukui-touchpadclient0, libukui-usersetting-dev, libukui-usersetting0,
+      libukui-xkbgeneralclient-dev, libukui-xkbgeneralclient0: Add Multi-Arch:
+      same.
 
  -- Debian Janitor <janitor@jelmer.uk>  Thu, 11 Jun 2020 02:24:40 -0000
 
