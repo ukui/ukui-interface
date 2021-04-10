@@ -8,7 +8,9 @@ Build-Depends: debhelper-compat (=12),
                autoconf,
                automake,
                libtool,
-               qtbase5-dev
+               qtbase5-dev,
+               libgsettings-qt-dev,
+               qttools5-dev-tools
 Standards-Version: 4.5.0
 Rules-Requires-Root: no
 Homepage: https://github.com/ukui/ukui-interface
@@ -601,3 +603,24 @@ Description: xkbgeneral settings interfaces
  and related libraries.
  .
  The package contains development files for xkbgeneral settings.
+
+Package: libukui-log4qt0
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: log4qt module
+ UKUI interface provides the interface for system configuration
+ and related libraries.
+ .
+ The package contains log4qt libraries.
+
+Package: libukui-log4qt-dev
+Architecture: any
+Section: libdevel
+Depends: ${shlibs:Depends},
+         ${misc:Depends},
+         libukui-log4qt0 (= ${binary:Version})
+Description: log4qt interface
+ UKUI interface provides the interface for system configuration
+ and related libraries.
+ .
+ The package contains development files for qt logging.

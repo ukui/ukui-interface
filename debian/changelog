@@ -1,4 +1,10 @@
-ukui-interface (1.0.0-2) UNRELEASED; urgency=low
+ukui-interface (1.0.1) v101; urgency=medium
+
+  * 增加功能：增加qt日志打印包
+
+ -- Yang Min <yangmin@kylinos.cn>  Sat, 10 Apr 2021 11:49:30 +0800
+
+ukui-interface (1.0.0-2) unstable; urgency=low
 
   * Set upstream metadata fields: Bug-Database, Bug-Submit.
   * Update standards version to 4.5.0, no changes needed.

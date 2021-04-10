@@ -1,0 +1,11 @@
+log4qt (1.0.1) v101; urgency=medium
+
+  * Fix：修复qt开启宏QT_NO_DEBUG时log输出的代码位置信息为空异常
+
+ -- Yang Min <yangmin@kylinos.cn>  Tue, 30 Mar 2021 19:25:20 +0800
+
+log4qt (1.0.0) v101; urgency=medium
+
+  * Initial release.
+
+ -- Yang Min <yangmin@kylinos.cn>  Tue, 30 Mar 2021 16:29:55 +0800

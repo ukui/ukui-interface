@@ -6,12 +6,23 @@ include /usr/share/dpkg/default.mk
 export DEB_BUILD_MAINT_OPTIONS = hardening=+all
 #export DEB_CFLAGS_MAINT_APPEND  = -Wall -pedantic
 #export DEB_LDFLAGS_MAINT_APPEND = -Wl,--as-needed
-
+QT_INSTALL_DIR:=$(shell pwd)/debian/tmp/
 
 %:
 	dh $@
+
+override_dh_install:
+	mkdir -p $(QT_INSTALL_DIR) && \
+	make install INSTALL_ROOT=$(QT_INSTALL_DIR) -C src/log4qt/build
+	dh_install
 
 override_dh_auto_configure:
 	./autogen.sh
 	dh_auto_configure -- \
 		--includedir=/usr/include/ukuisdk --bindir=/usr/lib/ukui-interface
+
+override_dh_auto_build:
+	dh_auto_build
+	mkdir -p src/log4qt/build
+	cd src/log4qt/build && qmake ../
+	make -C src/log4qt/build
