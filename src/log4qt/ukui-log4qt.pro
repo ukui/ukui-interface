@@ -36,10 +36,17 @@ HEADERS += \
 # Default rules for deployment.
 unix {
     target.path = /usr/lib
-    headers_main.path = /usr/include
-    headers_main.files += ukui-log4qt.h
 }
-!isEmpty(target.path): INSTALLS += target headers_main
+!isEmpty(target.path): INSTALLS += target
+
+schemes.files += org.ukui.log4qt.gschema.xml
+schemes.path = /usr/share/glib-2.0/schemas/
+
+headers_main.path = /usr/include
+headers_main.files += ukui-log4qt.h
+
+INSTALLS += schemes \
+            headers_main
 
 DISTFILES += \
     log4qt.conf
