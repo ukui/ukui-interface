@@ -1,3 +1,15 @@
+ukui-interface (1.0.1-2) v101; urgency=medium
+
+  * 修复bug：修复隔天重新打开程序时日志文件未按日期分割
+
+ -- Yang Min <yangmin@kylinos.cn>  Fri, 16 Apr 2021 15:38:18 +0800
+
+ukui-interface (1.0.1-1) v101; urgency=medium
+
+  * 完善功能：将qt日志库默认配置文件打包进deb
+
+ -- Yang Min <yangmin@kylinos.cn>  Sat, 10 Apr 2021 14:32:55 +0800
+
 ukui-interface (1.0.1) v101; urgency=medium
 
   * 增加功能：增加qt日志打印包

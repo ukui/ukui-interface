@@ -33,6 +33,7 @@
 
 #include <QtCore/QDebug>
 #include <QtCore/QFile>
+#include <QtCore/QFileInfo>
 #include <QtCore/QMetaEnum>
 #include <QtCore/QTextCodec>
 #include "log4qt/helpers/datetime.h"
@@ -123,7 +124,16 @@ namespace Log4Qt
 	    computeFrequency();
 	    if (!mActiveDatePattern.isEmpty())
 	    {
-	        computeRollOverTime();
+			#if 1
+			QFileInfo fileInfo(file());
+			if (!fileInfo.exists()) {
+				computeRollOverTime();
+			} else {
+	        	computeRollOverTime(fileInfo.birthTime());
+			}
+			#else
+			computeRollOverTime();
+			#endif
 	        FileAppender::activateOptions();
 	    }
 	}
@@ -225,6 +235,91 @@ namespace Log4Qt
 	                    frequencyToString());
 	}
 	
+	void DailyRollingFileAppender::computeRollOverTime(QDateTime startTime)
+	{
+		// Q_ASSERT_X(, "DailyRollingFileAppender::computeRollOverTime()", "Lock must be held by caller")
+	    Q_ASSERT_X(!mActiveDatePattern.isEmpty(), "DailyRollingFileAppender::computeRollOverTime()", "No active date pattern");
+	
+	    QDateTime now = startTime;
+	    QDate now_date = now.date();
+	    QTime now_time = now.time();
+	    QDateTime start;
+	    
+	    switch (mFrequency)
+	    {
+	        case MINUTELY_ROLLOVER:
+	            {
+	                start = QDateTime(now_date,
+	                                  QTime(now_time.hour(),
+	                                        now_time.minute(),
+	                                        0, 0));
+	                mRollOverTime = start.addSecs(60);
+	            } 
+	            break;
+	        case HOURLY_ROLLOVER:
+	            {
+	                start = QDateTime(now_date,
+	                                  QTime(now_time.hour(),
+	                                        0, 0, 0));
+	                mRollOverTime = start.addSecs(60*60);
+	            }
+	            break;
+	        case HALFDAILY_ROLLOVER:
+	            {
+	                int hour = now_time.hour();
+	                if (hour >=  12)
+	                    hour = 12;
+	                else
+	                    hour = 0;
+	                start = QDateTime(now_date,
+	                                  QTime(hour, 0, 0, 0));
+	                mRollOverTime = start.addSecs(60*60*12);
+	            }
+	            break;
+	        case DAILY_ROLLOVER:
+	            {
+	                start = QDateTime(now_date,
+	                                  QTime(0, 0, 0, 0));
+	                mRollOverTime = start.addDays(1);
+	            }
+	            break;
+	        case WEEKLY_ROLLOVER:
+	            { 
+	                // QT numbers the week days 1..7. The week starts on Monday.
+	                // Change it to being numbered 0..6, starting with Sunday.
+	                int day = now_date.dayOfWeek();
+	                if (day == Qt::Sunday)
+	                    day = 0;
+	                start = QDateTime(now_date,
+	                                  QTime(0, 0, 0, 0)).addDays(-1 * day);
+	                mRollOverTime = start.addDays(7);
+	            }
+	            break;
+	        case MONTHLY_ROLLOVER:
+	            {
+	                start = QDateTime(QDate(now_date.year(),
+	                                        now_date.month(),
+	                                        1),
+	                                  QTime(0, 0, 0, 0));
+	                mRollOverTime = start.addMonths(1);
+	            }
+	            break;
+	        default:
+	            Q_ASSERT_X(false, "DailyRollingFileAppender::computeInterval()", "Invalid datePattern constant");
+	            mRollOverTime = QDateTime::fromTime_t(0);
+	    }
+	    
+	    mRollOverSuffix = static_cast<DateTime>(start).toString(mActiveDatePattern);
+	    Q_ASSERT_X(static_cast<DateTime>(now).toString(mActiveDatePattern) == mRollOverSuffix, 
+	               "DailyRollingFileAppender::computeRollOverTime()", "File name changes within interval");
+	    Q_ASSERT_X(mRollOverSuffix != static_cast<DateTime>(mRollOverTime).toString(mActiveDatePattern),
+	               "DailyRollingFileAppender::computeRollOverTime()", "File name does not change with rollover");
+	    
+	    logger()->trace("Computing roll over time from %1: The interval start time is %2. The roll over time is %3",
+	                    now,
+	                    start,
+	                    mRollOverTime);
+	}
 	
 	void DailyRollingFileAppender::computeRollOverTime()
 	{

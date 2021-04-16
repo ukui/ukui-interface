@@ -7,13 +7,18 @@ export DEB_BUILD_MAINT_OPTIONS = hardening=+all
 #export DEB_CFLAGS_MAINT_APPEND  = -Wall -pedantic
 #export DEB_LDFLAGS_MAINT_APPEND = -Wl,--as-needed
 QT_INSTALL_DIR:=$(shell pwd)/debian/tmp/
+LOG4QT_BUILD_DIR:=$(shell pwd)/src/log4qt/build
 
 %:
 	dh $@
 
+override_dh_auto_clean:
+	dh_auto_clean
+	rm -fr $(LOG4QT_BUILD_DIR)
+
 override_dh_install:
 	mkdir -p $(QT_INSTALL_DIR) && \
-	make install INSTALL_ROOT=$(QT_INSTALL_DIR) -C src/log4qt/build
+	make install INSTALL_ROOT=$(QT_INSTALL_DIR) -C $(LOG4QT_BUILD_DIR)
 	dh_install
 
 override_dh_auto_configure:
@@ -23,6 +28,15 @@ override_dh_auto_configure:
 
 override_dh_auto_build:
 	dh_auto_build
-	mkdir -p src/log4qt/build
-	cd src/log4qt/build && qmake ../
-	make -C src/log4qt/build
+	mkdir -p $(LOG4QT_BUILD_DIR)
+	cd $(LOG4QT_BUILD_DIR) && qmake -makefile "QMAKE_CFLAGS_RELEASE=-g -O2 -fdebug-prefix-map=$(LOG4QT_BUILD_DIR)=. \
+		-fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2" \
+		"QMAKE_CFLAGS_DEBUG=-g -O2 -fdebug-prefix-map=$(LOG4QT_BUILD_DIR)=. -fstack-protector-strong \
+		-Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2" \
+		"QMAKE_CXXFLAGS_RELEASE=-g -O2 -fdebug-prefix-map=$(LOG4QT_BUILD_DIR)=. -fstack-protector-strong \
+		-Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2" \
+		"QMAKE_CXXFLAGS_DEBUG=-g -O2 -fdebug-prefix-map=$(LOG4QT_BUILD_DIR)=. \
+		-fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2" \
+		"QMAKE_LFLAGS_RELEASE=-Wl,-Bsymbolic-functions -Wl,-z,relro -Wl,-z,now" \
+		"QMAKE_LFLAGS_DEBUG=-Wl,-Bsymbolic-functions -Wl,-z,relro -Wl,-z,now" QMAKE_STRIP=: PREFIX=/usr ..
+	make -C $(LOG4QT_BUILD_DIR)
