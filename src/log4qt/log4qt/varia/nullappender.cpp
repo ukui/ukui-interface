@@ -74,6 +74,11 @@ namespace Log4Qt
 	{
 	    Q_UNUSED(rEvent);
 	}
+
+	void NullAppender::asyncAppend(const LoggingEvent &rEvent)
+	{
+	    Q_UNUSED(rEvent);
+	}
 	
 	
 #ifndef QT_NO_DEBUG_STREAM

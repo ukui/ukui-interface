@@ -42,6 +42,7 @@ HEADERS += \
     $$PWD/helpers/optionconverter.h \
     $$PWD/helpers/patternformatter.h \
     $$PWD/helpers/properties.h \
+    $$PWD/helpers/asyncdispatcher.h \
     $$PWD/hierarchy.h \
     $$PWD/layout.h \
     $$PWD/level.h \
@@ -84,6 +85,7 @@ SOURCES += \
     $$PWD/helpers/optionconverter.cpp \
     $$PWD/helpers/patternformatter.cpp \
     $$PWD/helpers/properties.cpp \
+    $$PWD/helpers/asyncdispatcher.cpp \
     $$PWD/hierarchy.cpp \    
     $$PWD/layout.cpp \
     $$PWD/level.cpp \

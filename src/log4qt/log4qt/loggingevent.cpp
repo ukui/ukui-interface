@@ -70,6 +70,7 @@ namespace Log4Qt
 	
 	
 	LoggingEvent::LoggingEvent() :
+		QEvent(eventId),
 		mLevel(Level::NULL_INT),
 	    mpLogger(0),
 	    mMessage(),
@@ -86,6 +87,7 @@ namespace Log4Qt
 	LoggingEvent::LoggingEvent(const Logger *pLogger, 
 	                           Level level,
 	                           const QString &rMessage) :
+		QEvent(eventId),
 	    mLevel(level),
 	    mpLogger(pLogger),
 	    mMessage(rMessage),
@@ -103,6 +105,7 @@ namespace Log4Qt
 	                           Level level,
 	                           const QString &rMessage,
 	                           qint64 timeStamp) :
+		QEvent(eventId),
 	    mLevel(level),
 	    mpLogger(pLogger),
 	    mMessage(rMessage),
@@ -123,6 +126,7 @@ namespace Log4Qt
 	                           const QHash<QString, QString> &rProperties,
 	                           const QString &rThreadName,
 	                           qint64 timeStamp) :
+		QEvent(eventId),
 	    mLevel(level),
 	    mpLogger(pLogger),
 	    mMessage(rMessage),
@@ -184,7 +188,7 @@ namespace Log4Qt
 	
 	
 	qint64 LoggingEvent::msSequenceCount = 0;
-	
+	const QEvent::Type LoggingEvent::eventId = static_cast<QEvent::Type>(QEvent::registerEventType());
 	
 	
 	/**************************************************************************

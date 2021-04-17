@@ -34,6 +34,7 @@
 #include <QtCore/QHash>
 #include <QtCore/QMetaType>
 #include <QtCore/QStringList>
+#include <QEvent>
 #include "log4qt/level.h"
 #include "ukui-logmacros.h"
 
@@ -55,9 +56,10 @@ namespace Log4Qt
 	 * Universal Time for time values. For converstion from and to QDateTime
 	 * use DateTime.
 	 */
-    class LIBUKUILOG4QT_EXPORT LoggingEvent
+    class LIBUKUILOG4QT_EXPORT LoggingEvent : public QEvent
 	{
 	public:
+		static const QEvent::Type eventId;
 	    LoggingEvent();
 	    LoggingEvent(const Logger *pLogger, 
 	                 Level level,
