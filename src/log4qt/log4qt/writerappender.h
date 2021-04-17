@@ -43,7 +43,8 @@ class QTextStream;
 
 namespace Log4Qt 
 {
-	
+	class AsyncDispatcher;
+
 	/*!
 	 * \brief The class WriterAppender appends log events to a QTextStream.
 	 * 
@@ -92,6 +93,7 @@ namespace Log4Qt
 	private:
 	    WriterAppender(const WriterAppender &rOther); // Not implemented
 	    WriterAppender &operator=(const WriterAppender &rOther); // Not implemented
+		void closeInternal();
 	        
 	public:
 	    virtual bool requiresLayout() const;
@@ -117,6 +119,7 @@ namespace Log4Qt
 	    
 	protected:
 	    virtual void append(const LoggingEvent &rEvent);
+		virtual void asyncAppend(const LoggingEvent &rEvent);
 	
 	    /*!
 	     * Tests if all entry conditions for using append() in this class are 
@@ -163,6 +166,9 @@ namespace Log4Qt
 	    QTextCodec *mpEncoding;
 	    QTextStream *mpWriter;
 	    volatile bool mImmediateFlush;
+		//! Event dispatcher trhead
+    	QThread *mThread;
+    	AsyncDispatcher *mAsyncDispatcher;
 	};
 	
 	

@@ -124,7 +124,7 @@ namespace Log4Qt
 	    computeFrequency();
 	    if (!mActiveDatePattern.isEmpty())
 	    {
-			#if 1
+			#ifdef UKUILOG4QT_EXTRA_ENABLE
 			QFileInfo fileInfo(file());
 			if (!fileInfo.exists()) {
 				computeRollOverTime();
@@ -142,10 +142,20 @@ namespace Log4Qt
 	void DailyRollingFileAppender::append(const LoggingEvent &rEvent)
 	{
 	    // Q_ASSERT_X(, "DailyRollingFileAppender::append()", "Lock must be held by caller")
+	    #ifndef UKUILOG4QT_EXTRA_ENABLE
+	    if (QDateTime::currentDateTime() > mRollOverTime)
+	        rollOver();
+		#endif
+	    FileAppender::append(rEvent);
+	}
+
+	void DailyRollingFileAppender::asyncAppend(const LoggingEvent &rEvent)
+	{
+	    // Q_ASSERT_X(, "DailyRollingFileAppender::asyncAppend()", "Lock must be held by caller")
 	    
 	    if (QDateTime::currentDateTime() > mRollOverTime)
 	        rollOver();
-	    FileAppender::append(rEvent);
+	    FileAppender::asyncAppend(rEvent);
 	}
 	    
 	    

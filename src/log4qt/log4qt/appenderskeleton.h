@@ -124,6 +124,7 @@ namespace Log4Qt
 	    
 	protected:
 	    virtual void append(const LoggingEvent &rEvent) = 0;
+		virtual void asyncAppend(const LoggingEvent &rEvent) = 0;
 	
 	    /*!
 	     * Tests if all entry conditions for using append() in this class are 
@@ -159,6 +160,9 @@ namespace Log4Qt
 	    Level mThreshold;
 	    LogObjectPtr<Filter> mpHeadFilter;
 	    LogObjectPtr<Filter> mpTailFilter;
+
+		// need AsyncDispatcher to call asyncAppend method
+		friend class AsyncDispatcher;
 	};
 	
 	

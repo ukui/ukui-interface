@@ -110,6 +110,17 @@ namespace Log4Qt
 	    // Q_ASSERT_X(, "RollingFileAppender::append()", "Lock must be held by caller")
 	
 	    FileAppender::append(rEvent);
+		#ifndef UKUILOG4QT_EXTRA_ENABLE
+	    if (writer()->device()->size() > this->mMaximumFileSize)
+	        rollOver();
+		#endif
+	}
+
+	void RollingFileAppender::asyncAppend(const LoggingEvent &rEvent)
+	{
+	    // Q_ASSERT_X(, "RollingFileAppender::asyncAppend()", "Lock must be held by caller")
+	
+	    FileAppender::asyncAppend(rEvent);
 	    if (writer()->device()->size() > this->mMaximumFileSize)
 	        rollOver();
 	}

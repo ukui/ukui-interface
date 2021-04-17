@@ -111,6 +111,7 @@ namespace Log4Qt
 	    
 	protected:
 	    virtual void append(const LoggingEvent &rEvent);
+		virtual void asyncAppend(const LoggingEvent &rEvent);
 	    
 #ifndef QT_NO_DEBUG_STREAM
 	    /*!

@@ -112,6 +112,14 @@ namespace Log4Qt
 	    if ((mMaxCount <= 0) || (mList.size() < mMaxCount))
 	        mList << rEvent;
 	}
+
+	void ListAppender::asyncAppend(const LoggingEvent &rEvent)
+	{
+	    // Q_ASSERT_X(, "ListAppender::asyncAppend()", "Lock must be held by caller")
+	    
+	    if ((mMaxCount <= 0) || (mList.size() < mMaxCount))
+	        mList << rEvent;
+	}
 	
 	
 #ifndef QT_NO_DEBUG_STREAM
