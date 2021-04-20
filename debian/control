@@ -606,7 +606,7 @@ Description: xkbgeneral settings interfaces
 
 Package: libukui-log4qt0
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
+Depends: ${shlibs:Depends}, ${misc:Depends}, libglib2.0-bin
 Description: log4qt module
  UKUI interface provides the interface for system configuration
  and related libraries.
@@ -618,7 +618,8 @@ Architecture: any
 Section: libdevel
 Depends: ${shlibs:Depends},
          ${misc:Depends},
-         libukui-log4qt0 (= ${binary:Version})
+         libukui-log4qt0 (= ${binary:Version}),
+         libglib2.0-bin
 Description: log4qt interface
  UKUI interface provides the interface for system configuration
  and related libraries.

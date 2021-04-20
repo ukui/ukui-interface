@@ -215,10 +215,11 @@ namespace Log4Qt
 	            return;
 	    }
 		#else
-		if (mThread && !mThread->isRunning()) 
-			mThread->start();
-		if (qApp)
+		if (qApp) {
+			if (mThread && !mThread->isRunning()) 
+				mThread->start();
 			qApp->postEvent(mAsyncDispatcher, new LoggingEvent(rEvent));
+		}
 		#endif
 	}
 
