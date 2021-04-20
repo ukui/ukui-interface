@@ -126,8 +126,41 @@ namespace Log4Qt
 	    const char *p_context = "Level";
 	    if (pOk)
 	        *pOk = true;
-	
-	    if (rLevel == QLatin1String("OFF") || 
+	#if 1
+	    if (!rLevel.compare(QLatin1String("OFF"), Qt::CaseInsensitive) || 
+	        !rLevel.compare(QCoreApplication::translate(p_context, "OFF"), Qt::CaseInsensitive))
+	        return OFF_INT;
+	    if (!rLevel.compare(QLatin1String("FATAL"), Qt::CaseInsensitive) || 
+	        !rLevel.compare(QCoreApplication::translate(p_context, "FATAL"), Qt::CaseInsensitive))
+	        return FATAL_INT;
+	    if (!rLevel.compare(QLatin1String("ERROR"), Qt::CaseInsensitive) || 
+	        !rLevel.compare(QCoreApplication::translate(p_context, "ERROR"), Qt::CaseInsensitive))
+	        return ERROR_INT;
+	    if (!rLevel.compare(QLatin1String("WARN"), Qt::CaseInsensitive) || 
+	        !rLevel.compare(QCoreApplication::translate(p_context, "WARN"), Qt::CaseInsensitive))
+	        return WARN_INT;
+	    if (!rLevel.compare(QLatin1String("INFO"), Qt::CaseInsensitive) || 
+	        !rLevel.compare(QCoreApplication::translate(p_context, "INFO"), Qt::CaseInsensitive))
+	        return INFO_INT;
+	    if (!rLevel.compare(QLatin1String("DEBUG"), Qt::CaseInsensitive) || 
+	        !rLevel.compare(QCoreApplication::translate(p_context, "DEBUG"), Qt::CaseInsensitive))
+	        return DEBUG_INT;
+	    if (!rLevel.compare(QLatin1String("TRACE"), Qt::CaseInsensitive) || 
+	        !rLevel.compare(QCoreApplication::translate(p_context, "TRACE"), Qt::CaseInsensitive))
+	        return TRACE_INT;
+	    if (!rLevel.compare(QLatin1String("ALL"), Qt::CaseInsensitive) ||
+	        !rLevel.compare(QCoreApplication::translate(p_context, "ALL"), Qt::CaseInsensitive))
+	        return ALL_INT;
+	    if (!rLevel.compare(QLatin1String("NULL"), Qt::CaseInsensitive) || 
+	        !rLevel.compare(QCoreApplication::translate(p_context, "NULL"), Qt::CaseInsensitive))
+	        return NULL_INT;
+
+	    logger()->warn("Use of invalid level string '%1'. Using 'Level::OFF_INT' instead.", rLevel);
+	    if (pOk)
+	        *pOk = false;
+	    return OFF_INT;
+	#else
+		if (rLevel == QLatin1String("OFF") || 
 	        rLevel == QCoreApplication::translate(p_context, "OFF"))
 	        return OFF_INT;
 	    if (rLevel == QLatin1String("FATAL") || 
@@ -154,11 +187,12 @@ namespace Log4Qt
 	    if (rLevel == QLatin1String("NULL") || 
 	        rLevel == QCoreApplication::translate(p_context, "NULL"))
 	        return NULL_INT;
-	    
+
 	    logger()->warn("Use of invalid level string '%1'. Using 'Level::NULL_INT' instead.", rLevel);
 	    if (pOk)
 	        *pOk = false;
 	    return NULL_INT;
+	#endif
 	}
 	
 	
