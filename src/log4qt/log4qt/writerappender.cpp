@@ -203,6 +203,9 @@ namespace Log4Qt
 		#ifndef UKUILOG4QT_EXTRA_ENABLE
 	    Q_ASSERT_X(layout(), "WriterAppender::append()", "Layout must not be null");
 	    QString message(layout()->format(rEvent));
+
+		if (!mpWriter)
+			return;
 	
 	    *mpWriter << message;
 	    if (handleIoErrors())
@@ -219,6 +222,23 @@ namespace Log4Qt
 			if (mThread && !mThread->isRunning()) 
 				mThread->start();
 			qApp->postEvent(mAsyncDispatcher, new LoggingEvent(rEvent));
+		} else {
+			Q_ASSERT_X(layout(), "WriterAppender::append()", "Layout must not be null");
+			QString message(layout()->format(rEvent));
+
+			if (!mpWriter)
+				return;
+		
+			*mpWriter << message;
+			if (handleIoErrors())
+				return;
+			
+			if (immediateFlush())
+			{
+				mpWriter->flush();
+				if (handleIoErrors())
+					return;
+			}
 		}
 		#endif
 	}
@@ -228,6 +248,9 @@ namespace Log4Qt
 	    // Q_ASSERT_X(, "WriterAppender::asyncAppend()", "Lock must be held by caller");
 	    Q_ASSERT_X(layout(), "WriterAppender::asyncAppend()", "Layout must not be null");
 	    QString message(layout()->format(rEvent));
+
+		if (!mpWriter)
+			return;
 	
 	    *mpWriter << message;
 	    if (handleIoErrors())

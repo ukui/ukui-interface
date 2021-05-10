@@ -129,7 +129,7 @@ namespace Log4Qt
 			if (!fileInfo.exists()) {
 				computeRollOverTime();
 			} else {
-	        	computeRollOverTime(fileInfo.birthTime());
+	        	computeRollOverTime(fileInfo.birthTime().isNull()?fileInfo.lastModified():fileInfo.birthTime());
 			}
 			#else
 			computeRollOverTime();
