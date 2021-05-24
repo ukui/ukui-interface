@@ -35,11 +35,12 @@
 #include <QtCore/QTextCodec>
 #include <QtCore/QThread>
 #include <QtCore/QCoreApplication>
+#include <unistd.h>
 #include "log4qt/layout.h"
 #include "log4qt/loggingevent.h"
 #include "log4qt/helpers/asyncdispatcher.h"
 
-
+extern pid_t g_MainProcPid;
 namespace Log4Qt
 {
 	
@@ -218,7 +219,7 @@ namespace Log4Qt
 	            return;
 	    }
 		#else
-		if (qApp) {
+		if (qApp && g_MainProcPid == getpid()) {
 			if (mThread && !mThread->isRunning()) 
 				mThread->start();
 			qApp->postEvent(mAsyncDispatcher, new LoggingEvent(rEvent));

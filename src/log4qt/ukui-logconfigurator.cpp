@@ -27,10 +27,12 @@
 
 #include <QDebug>
 #include <QStandardPaths>
+#include <unistd.h>
 
 
 LOG4QT_GLOBAL_STATIC(QMutex, single_config)
 UkuiLog4qtConfig *UkuiLog4qtConfig::mInstance = nullptr;
+pid_t g_MainProcPid = -1;
 
 UkuiLog4qtConfig::UkuiLog4qtConfig(QObject *parent) : 
     QObject(parent),
@@ -43,6 +45,7 @@ UkuiLog4qtConfig::UkuiLog4qtConfig(QObject *parent) :
     m_uMaxFileCount = 0;
     m_uMaxFileSize = 0;
     m_timeCheckFile = 60;
+    g_MainProcPid = getpid();
 }
 
 UkuiLog4qtConfig::~UkuiLog4qtConfig()
