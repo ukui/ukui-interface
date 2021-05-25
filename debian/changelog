@@ -1,3 +1,21 @@
+ukui-interface (1.0.1-8) v101; urgency=medium
+
+  * BUG号：无
+  * 需求号：无
+  * 其他改动说明：1、优化当前日志文件超过限制大小时清空逻辑；
+                  2、修复fork子进程后，子进程日志无法输出问题；
+                  3、修改日志文件目录为~/.log/
+
+ -- Yang Min <yangmin@kylinos.cn>  Mon, 24 May 2021 20:59:37 +0800
+
+ukui-interface (1.0.1-7) v101; urgency=medium
+
+  * BUG号：无
+  * 需求号：无
+  * 其他改动说明：修复在SW架构上QFileInfo获取不到birthTime时会导致程序崩溃问题
+
+ -- Yang Min <yangmin@kylinos.cn>  Sat, 08 May 2021 15:29:14 +0800
+
 ukui-interface (1.0.1-5) v101; urgency=medium
 
   * fix:修复装包依赖libglib2.0-bin

@@ -23,6 +23,7 @@
 #include <QFile>
 #include <QFileInfo>
 #include <QStringList>
+#include <QProcess>
 
 UkuiLog4qtRolling::UkuiLog4qtRolling(QString strBaseFilePath, unsigned uMaxFileCount, quint64 uMaxFileSize, 
         quint64 delayCheckFileTime, QObject *parent) :
@@ -170,6 +171,11 @@ void UkuiLog4qtRolling::checkLogFilesSize()
             QFile file(filePath);
             file.remove();  // 删除文件
             willRmFileSize -= fileInfoList[i].size();
+        } else {    // 清空文件内容
+            //KyDebug()<<"清空文件内容："<<filePath;
+            QProcess process;
+            process.start("sh", QStringList()<<"-c"<<QString("> %1").arg(filePath));
+            process.waitForFinished(100);
         }
     }
 }

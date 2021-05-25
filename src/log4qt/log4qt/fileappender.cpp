@@ -286,6 +286,9 @@ namespace Log4Qt
                                   const QString &rFileName) const
 	{
         logger()->debug("Renaming file '%1' to '%2'", rFile.fileName(), rFileName);
+		if (!rFileName.compare(rFile.fileName()))
+			return true;
+			
         if (rFile.rename(rFileName))
         	return true;
         

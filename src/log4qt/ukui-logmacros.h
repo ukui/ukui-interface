@@ -28,7 +28,7 @@
 #endif
 
 // 日志文件相对home目录路径
-#define UKUILOG4QT_ROOTPATH  "/.config/ukui/"
+#define UKUILOG4QT_ROOTPATH  "/.log/"
 
 // gsettings相关相关属性
 #define UKUILOG4QT_SETTINGS "org.ukui.ukui-log4qt"
