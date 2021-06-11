@@ -166,9 +166,6 @@ namespace Log4Qt
 	    QTextCodec *mpEncoding;
 	    QTextStream *mpWriter;
 	    volatile bool mImmediateFlush;
-		//! Event dispatcher trhead
-    	QThread *mThread;
-    	AsyncDispatcher *mAsyncDispatcher;
 	};
 	
 	

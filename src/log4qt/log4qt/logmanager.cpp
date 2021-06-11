@@ -54,6 +54,7 @@
 #include "log4qt/varia/denyallfilter.h"
 #include "log4qt/varia/levelrangefilter.h"
 
+#include <unistd.h>
 
 namespace Log4Qt
 {
@@ -415,9 +416,9 @@ namespace Log4Qt
 #endif
 
 #if defined(Q_OS_UNIX) && defined(QT_DEBUG)
-            abort(); // trap; generates core dump
+            //abort(); // trap; generates core dump
 #else
-            exit(1); // goodbye cruel world
+            //exit(1); // goodbye cruel world
 #endif
         }
 
@@ -447,7 +448,7 @@ namespace Log4Qt
             default:
                 level = Level::TRACE_INT;
         }
-        QString newMsg = context.file?QString("%1:%2(%3)|").arg(context.file).arg(context.line).arg(context.function):"|";
+        QString newMsg = context.file?QString("|PID:%1|%2:%3(%4)|").arg(getpid()).arg(context.file).arg(context.line).arg(context.function):QString("|PID:%1|").arg(getpid());
         instance()->qtLogger()->log(level, newMsg+message);
 
         // Qt fatal behaviour copied from global.cpp qt_message_output()
@@ -468,9 +469,9 @@ namespace Log4Qt
 #endif
 
 #if defined(Q_OS_UNIX) && defined(QT_DEBUG)
-            abort(); // trap; generates core dump
+            //abort(); // trap; generates core dump
 #else
-            exit(1); // goodbye cruel world
+            //exit(1); // goodbye cruel world
 #endif
         }
 
