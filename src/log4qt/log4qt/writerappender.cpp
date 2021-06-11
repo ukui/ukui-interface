@@ -66,9 +66,7 @@ namespace Log4Qt
 	    AppenderSkeleton(false, pParent),
 	    mpEncoding(0),
 	    mpWriter(0),
-	    mImmediateFlush(true),
-		mThread(nullptr),
-		mAsyncDispatcher(nullptr)
+	    mImmediateFlush(true)
 	{
 	}
 	
@@ -78,9 +76,7 @@ namespace Log4Qt
 		AppenderSkeleton(false, pParent),
 		mpEncoding(0),
 		mpWriter(0),
-		mImmediateFlush(true),
-		mThread(nullptr),
-		mAsyncDispatcher(nullptr)
+		mImmediateFlush(true)
 	{
 		setLayout(pLayout);
 	}
@@ -92,9 +88,7 @@ namespace Log4Qt
 		AppenderSkeleton(false, pParent),
 		mpEncoding(0),
 		mpWriter(pTextStream),
-		mImmediateFlush(true),
-		mThread(nullptr),
-		mAsyncDispatcher(nullptr)
+		mImmediateFlush(true)
 	{
 		setLayout(pLayout);
 	}
@@ -151,15 +145,6 @@ namespace Log4Qt
 	    }
 	    
 	    AppenderSkeleton::activateOptions();
-
-		if (mThread != nullptr)
-			return;
-		mThread = new QThread();
-		mAsyncDispatcher = new AsyncDispatcher();
-		mAsyncDispatcher->setAsyncAppender(this);
-
-		mAsyncDispatcher->moveToThread(mThread);
-		//mThread->start();
 	}
 	
 	
@@ -179,17 +164,6 @@ namespace Log4Qt
 	{
         if (isClosed())
             return;
-
-        if (mThread != nullptr)
-        {
-            mAsyncDispatcher->setAsyncAppender(nullptr);
-            mThread->quit();
-            mThread->wait();
-            delete mThread;
-            mThread = nullptr;
-            delete mAsyncDispatcher;
-            mAsyncDispatcher = nullptr;
-        }
 	}	
 	
 	bool WriterAppender::requiresLayout() const
@@ -201,7 +175,6 @@ namespace Log4Qt
 	void WriterAppender::append(const LoggingEvent &rEvent)
 	{
 	    // Q_ASSERT_X(, "WriterAppender::append()", "Lock must be held by caller");
-		#ifndef UKUILOG4QT_EXTRA_ENABLE
 	    Q_ASSERT_X(layout(), "WriterAppender::append()", "Layout must not be null");
 	    QString message(layout()->format(rEvent));
 
@@ -218,30 +191,6 @@ namespace Log4Qt
 	        if (handleIoErrors())
 	            return;
 	    }
-		#else
-		if (qApp && g_MainProcPid == getpid()) {
-			if (mThread && !mThread->isRunning()) 
-				mThread->start();
-			qApp->postEvent(mAsyncDispatcher, new LoggingEvent(rEvent));
-		} else {
-			Q_ASSERT_X(layout(), "WriterAppender::append()", "Layout must not be null");
-			QString message(layout()->format(rEvent));
-
-			if (!mpWriter)
-				return;
-		
-			*mpWriter << message;
-			if (handleIoErrors())
-				return;
-			
-			if (immediateFlush())
-			{
-				mpWriter->flush();
-				if (handleIoErrors())
-					return;
-			}
-		}
-		#endif
 	}
 
 	void WriterAppender::asyncAppend(const LoggingEvent &rEvent)
