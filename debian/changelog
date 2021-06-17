@@ -1,65 +1,8 @@
-ukui-interface (1.0.1-9hw1) v101.hw; urgency=medium
+ukui-interface (1.0.1-1) focal; urgency=medium
 
-  * BUG号：无
-  * 需求号：无
-  * 其他改动说明：1、修复log4qt日志库偶现释放资源时因等待线程退出阻塞进程退出问题；
-                  2、辅助修复55965、59160bug中ukui-session偶现卡住问题
+  * New upstream release.
 
- -- Yang Min <yangmin@kylinos.cn>  Fri, 11 Jun 2021 19:34:53 +0800
-
-ukui-interface (1.0.1-8) v101; urgency=medium
-
-  * BUG号：无
-  * 需求号：无
-  * 其他改动说明：1、优化当前日志文件超过限制大小时清空逻辑；
-                  2、修复fork子进程后，子进程日志无法输出问题；
-                  3、修改日志文件目录为~/.log/
-
- -- Yang Min <yangmin@kylinos.cn>  Mon, 24 May 2021 20:59:37 +0800
-
-ukui-interface (1.0.1-7) v101; urgency=medium
-
-  * BUG号：无
-  * 需求号：无
-  * 其他改动说明：修复在SW架构上QFileInfo获取不到birthTime时会导致程序崩溃问题
-
- -- Yang Min <yangmin@kylinos.cn>  Sat, 08 May 2021 15:29:14 +0800
-
-ukui-interface (1.0.1-5) v101; urgency=medium
-
-  * fix:修复装包依赖libglib2.0-bin
-
- -- Yang Min <yangmin@kylinos.cn>  Tue, 20 Apr 2021 12:36:27 +0800
-
-ukui-interface (1.0.1-4) v101; urgency=medium
-
-  * fix：升版本重编
-
- -- Yang Min <yangmin@kylinos.cn>  Mon, 19 Apr 2021 16:43:41 +0800
-
-ukui-interface (1.0.1-3) v101; urgency=medium
-
-  * feature: 日志异步输出
-
- -- Yang Min <yangmin@kylinos.cn>  Sat, 17 Apr 2021 16:59:43 +0800
-
-ukui-interface (1.0.1-2) v101; urgency=medium
-
-  * 修复bug：修复隔天重新打开程序时日志文件未按日期分割
-
- -- Yang Min <yangmin@kylinos.cn>  Fri, 16 Apr 2021 15:38:18 +0800
-
-ukui-interface (1.0.1-1) v101; urgency=medium
-
-  * 完善功能：将qt日志库默认配置文件打包进deb
-
- -- Yang Min <yangmin@kylinos.cn>  Sat, 10 Apr 2021 14:32:55 +0800
-
-ukui-interface (1.0.1) v101; urgency=medium
-
-  * 增加功能：增加qt日志打印包
-
- -- Yang Min <yangmin@kylinos.cn>  Sat, 10 Apr 2021 11:49:30 +0800
+ -- handsome_feng <jianfengli@ubuntukylin.com>  Thu, 17 Jun 2021 15:23:30 +0800
 
 ukui-interface (1.0.0-2) unstable; urgency=low
 
