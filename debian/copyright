@@ -3,10 +3,13 @@ Upstream-Name: ukui-interface
 Upstream-Contact: liuhao <liuhao@kylinos.cn>
 Source: https://github.com/ukui/ukui-interface
 
+Files: *
+Copyright: 2019 Tianjin KYLIN Information Technology Co., Ltd.
+License: GPL-3.0+
+
 Files: src/log4qt/doc/*
-	    src/log4qt/log4qt/*
-	    src/log4qt/src/log4qt/*
-		src/log4qt/tests/*
+       src/log4qt/log4qt/*
+       src/log4qt/tests/*
 Copyright: 2007 - 2009 Martin Heinrich
 License: Apache-2.0
  Licensed under the Apache License, Version 2.0 (the "License");
@@ -26,16 +29,12 @@ License: Apache-2.0
 
 Files: src/log4qt/ukui-log4qt.h
         src/log4qt/ukui-log4qt.cpp
-        src/log4qt/ukui-ukui-logconfigurator.h
-        src/log4qt/ukui-ukui-logconfigurator.cpp
-        src/log4qt/ukui-ukui-logrolling.h
-        src/log4qt/ukui-ukui-logrolling.cpp
+        src/log4qt/ukui-logconfigurator.h
+        src/log4qt/ukui-logconfigurator.cpp
+        src/log4qt/ukui-logrolling.h
+        src/log4qt/ukui-logrolling.cpp
         src/log4qt/ukui-logmacros.h
 Copyright: 2021 Yang Min <yangmin@kylinos.cn>
-License: GPL-3.0+
-
-Files: *
-Copyright: 2019 Tianjin KYLIN Information Technology Co., Ltd.
 License: GPL-3.0+
 
 Files: debian/*
