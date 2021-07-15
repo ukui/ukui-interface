@@ -1,2 +1,2 @@
-usr/lib/ukui-interface/ukui-desktopserver
+usr/libexec/ukui-desktopserver
 usr/share/dbus-1/services/cn.kylinos.desktop.service

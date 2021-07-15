@@ -1,3 +1,4 @@
 usr/include/ukuisdk/kylin-date-interface.h
 usr/lib/*/libukui-datesetting.a
+usr/lib/*/libukui-datesetting.la
 usr/lib/*/libukui-datesetting.so

@@ -1,3 +1,4 @@
 usr/include/ukuisdk/kylin-gsettings-set.h
 usr/lib/*/libukui-gsettings.a
+usr/lib/*/libukui-gsettings.la
 usr/lib/*/libukui-gsettings.so

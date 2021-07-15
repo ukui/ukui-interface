@@ -8,6 +8,10 @@ export DEB_BUILD_MAINT_OPTIONS = hardening=+all
 #export DEB_LDFLAGS_MAINT_APPEND = -Wl,--as-needed
 QT_INSTALL_DIR:=$(shell pwd)/debian/tmp/
 LOG4QT_BUILD_DIR:=$(shell pwd)/src/log4qt/build
+CPPFLAGS:=$(shell dpkg-buildflags --get CPPFLAGS)
+CFLAGS:=$(shell dpkg-buildflags --get CFLAGS) $(CPPFLAGS)
+CXXFLAGS:=$(shell dpkg-buildflags --get CXXFLAGS) $(CPPFLAGS)
+LDFLAGS:=$(shell dpkg-buildflags --get LDFLAGS)
 
 %:
 	dh $@
@@ -20,11 +24,12 @@ override_dh_install:
 	mkdir -p $(QT_INSTALL_DIR) && \
 	make install INSTALL_ROOT=$(QT_INSTALL_DIR) -C $(LOG4QT_BUILD_DIR)
 	dh_install
+	sed -i "/dependency_libs/ s/'.*'/''/" `find . -name '*.la'`
 
 override_dh_auto_configure:
 	./autogen.sh
 	dh_auto_configure -- \
-		--includedir=/usr/include/ukuisdk --bindir=/usr/lib/ukui-interface
+		--includedir=/usr/include/ukuisdk --bindir=/usr/libexec
 
 override_dh_auto_build:
 	dh_auto_build

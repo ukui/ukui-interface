@@ -1,3 +1,4 @@
 usr/include/ukuisdk/kylin-mouse-interface.h
 usr/lib/*/libukui-mouseclient.a
+usr/lib/*/libukui-mouseclient.la
 usr/lib/*/libukui-mouseclient.so

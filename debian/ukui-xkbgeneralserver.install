@@ -1,2 +1,2 @@
-usr/lib/ukui-interface/ukui-xkbgeneralserver
+usr/libexec/ukui-xkbgeneralserver
 usr/share/dbus-1/services/cn.kylinos.xkbgeneral.service

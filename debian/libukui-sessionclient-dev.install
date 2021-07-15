@@ -1,3 +1,4 @@
 usr/include/ukuisdk/kylin-session-interface.h
 usr/lib/*/libukui-sessionclient.a
+usr/lib/*/libukui-sessionclient.la
 usr/lib/*/libukui-sessionclient.so

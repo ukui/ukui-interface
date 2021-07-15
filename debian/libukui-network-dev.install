@@ -1,3 +1,4 @@
 usr/include/ukuisdk/kylin-network-interface.h
 usr/lib/*/libukui-network.a
+usr/lib/*/libukui-network.la
 usr/lib/*/libukui-network.so

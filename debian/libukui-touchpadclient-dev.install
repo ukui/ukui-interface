@@ -1,3 +1,4 @@
 usr/include/ukuisdk/kylin-touchpad-interface.h
 usr/lib/*/libukui-touchpadclient.a
+usr/lib/*/libukui-touchpadclient.la
 usr/lib/*/libukui-touchpadclient.so

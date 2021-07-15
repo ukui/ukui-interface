@@ -1,3 +1,4 @@
 usr/include/ukuisdk/kylin-keyboard-interface.h
 usr/lib/*/libukui-keyboardclient.a
+usr/lib/*/libukui-keyboardclient.la
 usr/lib/*/libukui-keyboardclient.so
