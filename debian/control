@@ -93,46 +93,6 @@ Description: background settings interfaces
  .
  The package contains development files for background settings.
 
-Package: libukui-datesetting0
-Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: date settings module
- UKUI interface provides the interface for system configuration
- and related libraries.
- .
- The package contains date settings libraries.
-
-Package: libukui-datesetting-dev
-Architecture: any
-Section: libdevel
-Depends: ${misc:Depends},
-        libukui-datesetting0 (= ${binary:Version})
-Description: date settings interfaces
- UKUI interface provides the interface for system configuration
- and related libraries.
- .
- The package contains development files for date settings.
-
-Package: libukui-defaultprograms0
-Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: default programs settings module
- UKUI interface provides the interface for system configuration
- and related libraries.
- .
- The package contains default programs settings libraries.
-
-Package: libukui-defaultprograms-dev
-Architecture: any
-Section: libdevel
-Depends: ${misc:Depends},
-        libukui-defaultprograms0 (= ${binary:Version})
-Description: default programs settings interfaces
- UKUI interface provides the interface for system configuration
- and related libraries.
- .
- The package contains development files for default programs settings.
-
 Package: ukui-desktopserver
 Architecture: any
 Depends: ${shlibs:Depends},
@@ -457,46 +417,6 @@ Description: session settings interfaces
  .
  The package contains development files for session settings.
 
-Package: libukui-subversion0
-Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: Subversion check module
- UKUI interface provides the interface for system configuration
- and related libraries.
- .
- The package contains Subversion check libraries.
-
-Package: libukui-subversion-dev
-Architecture: any
-Section: libdevel
-Depends: ${misc:Depends},
-        libukui-subversion0 (= ${binary:Version})
-Description: Subversion check interfaces
- UKUI interface provides the interface for system configuration
- and related libraries.
- .
- The package contains development files for Subversion check.
-
-Package: libukui-sysinfo0
-Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: system information gettings module
- UKUI interface provides the interface for system configuration
- and related libraries.
- .
- The package contains system information gettings libraries.
-
-Package: libukui-sysinfo-dev
-Architecture: any
-Section: libdevel
-Depends: ${misc:Depends},
-        libukui-sysinfo0 (= ${binary:Version})
-Description: system information gettings interfaces
- UKUI interface provides the interface for system configuration
- and related libraries.
- .
- The package contains development files for system information gettings.
-
 Package: ukui-touchpadserver
 Architecture: any
 Depends: ${shlibs:Depends},
@@ -561,28 +481,6 @@ Description: xkbgeneral settings service process
  and related libraries.
  .
  The package contains xkbgeneral settings service process.
-
-Package: libukui-xkbgeneralclient0
-Architecture: any
-Depends: ${shlibs:Depends},
-	${misc:Depends},
-	ukui-xkbgeneralserver (= ${binary:Version})
-Description: xkbgeneral settings module
- UKUI interface provides the interface for system configuration
- and related libraries.
- .
- The package contains xkbgeneral settings libraries.
-
-Package: libukui-xkbgeneralclient-dev
-Architecture: any
-Section: libdevel
-Depends: ${misc:Depends},
-        libukui-xkbgeneralclient0 (= ${binary:Version})
-Description: xkbgeneral settings interfaces
- UKUI interface provides the interface for system configuration
- and related libraries.
- .
- The package contains development files for xkbgeneral settings.
 
 Package: libukui-log4qt1
 Architecture: any
