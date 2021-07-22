@@ -1,9 +1,22 @@
 #Generata binary file 
-lib_LTLIBRARIES  = libukui-print.la libukui-gsettings.la
+lib_LTLIBRARIES  = libukui-print.la libukui-gsettings.la libukui-common.la
 
 #gcc -wall: displays all the errors and warning information when compiling
 #gcc -g: add the debugging code when compiling 
 COMM_CFS = -Wall -g
+
+#Add the dependent source file for libukui-common.la
+libukui_common_la_SOURCES = kylin-common.c \
+    kylin-ini.c \
+	$(NULL)
+
+#Additional C compiler flags
+libukui_common_la_CFLAGS=  $(COMM_CFS) \
+        $(NULL)
+
+#Additional link objects
+libukui_common_la_LDFLAGS= \
+        $(NULL)
 
 #Add the dependent source file for libukui-print.la
 libukui_print_la_SOURCES = kylin-print.c \
@@ -15,6 +28,7 @@ libukui_gsettings_la_SOURCES = kylin-gsettings-set.c \
 
 #The header files that need to be installed
 include_HEADERS= \
+	kylin-common.h \
 	kylin-print.h \
 	kylin-gsettings-set.h \
 	$(NULL)

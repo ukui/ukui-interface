@@ -504,3 +504,23 @@ Description: log4qt interface
  and related libraries.
  .
  The package contains development files for qt logging.
+
+Package: libukui-common0
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: common module
+ UKUI interface provides the interface for system configuration
+ and related libraries.
+ .
+ The package contains common libraries.
+
+Package: libukui-common-dev
+Architecture: any
+Section: libdevel
+Depends: ${misc:Depends},
+         libukui-common0 (= ${binary:Version})
+Description: common interface
+ UKUI interface provides the interface for system configuration
+ and related libraries.
+ .
+ The package contains development files for platform common info.
