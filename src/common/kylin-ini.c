@@ -20,15 +20,77 @@
 
 #include <stdio.h>  
 #include <string.h>
+#include <stdlib.h>
+#include <ctype.h>
+
+//去除尾部空白字符 包括\t \n \r  
+/*
+标准的空白字符包括：
+' '     (0x20)    space (SPC) 空格符
+'\t'    (0x09)    horizontal tab (TAB) 水平制表符    
+'\n'    (0x0a)    newline (LF) 换行符
+'\v'    (0x0b)    vertical tab (VT) 垂直制表符
+'\f'    (0x0c)    feed (FF) 换页符
+'\r'    (0x0d)    carriage return (CR) 回车符
+//windows \r\n linux \n mac \r
+*/ 
+char *rtrim(char *str, int containQuot)
+{
+    if(str == NULL || *str == '\0') {
+        return str;
+    }
+    int len = strlen(str);
+    char *p = str + len - 1;
+    if (containQuot) {
+        while(p >= str && (isspace(*p) || *p == '\"')) {
+            *p = '\0'; --p;
+        }
+    } else {
+        while(p >= str && isspace(*p)) {
+            *p = '\0'; --p;
+        }
+    }
+    return str;
+}
+
+//去除首部空格 
+char *ltrim(char *str, int containQuot)
+{
+    if(str == NULL || *str == '\0') {
+        return str;
+    }
+    int len = 0;
+    char *p = str;
+    if (containQuot) {
+        while(*p != '\0' && (isspace(*p) || *p == '\"')) { 
+            ++p; ++len;
+        }
+    } else {
+        while(*p != '\0' && isspace(*p)) { 
+            ++p; ++len;
+        }
+    }
+    memmove(str, p, strlen(str) - len + 1);
+    return str;
+}
+
+//去除首尾空格
+char *trim(char *str, int containQuot)
+{
+    str = rtrim(str, containQuot);
+    str = ltrim(str, containQuot);
+    return str;
+}
 
 // getIniKeyString 读取ini键值
 int getIniKeyString(const char *filename, const char *session, const char *key, char *value, int value_max_len)
 {
     if (filename == NULL || session == NULL || key == NULL || value == NULL || value_max_len <= 0) 
         return -1; // 参数错误
+    // 清空目标缓存
     FILE *fp = NULL;
     int  flag = 0;
-    char sSession[64], *wTmp;
+    char sSession[64], *wTmp = NULL;
     char sLine[1024];
     snprintf(sSession, 64, "[%s]", session);
     if(NULL == (fp = fopen(filename, "r"))) {  
@@ -37,24 +99,32 @@ int getIniKeyString(const char *filename, const char *session, const char *key, 
     }
     while (NULL != fgets(sLine, 1024, fp)) {
         // 这是注释行
+        trim(sLine, 0);
         if (0 == strncmp("//", sLine, 2)) continue;
         if ('#' == sLine[0])              continue;
         wTmp = strchr(sLine, '=');
         if ((NULL != wTmp) && (1 == flag)) {
-            if (0 == strncmp(key, sLine, strlen(key))) { // 长度依文件读取的为准  
-                sLine[strlen(sLine) - 1] = '\0';  
+            int keyLen = wTmp - sLine;
+            char keyName[256] = {0};
+            strncpy(keyName, sLine, keyLen);
+            rtrim(keyName, 0);
+            keyLen = strlen(keyName) > strlen(key) ? strlen(keyName) : strlen(key);
+            if (0 == strncmp(key, keyName, keyLen)) { // 长度依文件读取的为准
                 fclose(fp);
-                while(*(wTmp + 1) == ' '){
-                    wTmp++;
-                }
                 int nValidLen = strlen(wTmp + 1);
                 nValidLen = nValidLen < value_max_len ? nValidLen : value_max_len;
                 strncpy(value, wTmp + 1, nValidLen);
+                trim(value, 1);
                 return 0;
             }  
         } else {
             if (0 == strncmp(sSession, sLine, strlen(sSession))) { // 长度依文件读取的为准  
-                flag = 1; // 找到标题位置  
+                flag = 1; // 找到目标session位置  
+            } else if (flag == 1) { // 找到其他空行或session
+                wTmp = strchr(sLine, '[');
+                if (NULL != wTmp) {
+                    flag = 0;
+                }
             }
         }
     }

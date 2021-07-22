@@ -83,6 +83,15 @@ int common_get_prjcodename(char *value, int value_max_len);
  **/
 int common_get_cpumodelname(char *modelName, int max_len);
 
+/**
+ * 函数名称：common_get_spechdplatform
+ * 功能：获取特定硬件平台信息
+ * 参数1：platformName 特定硬件平台信息(out)
+ * 参数2：max_len 特定硬件平台缓存区的大小(in)
+ * 返回值：> 0 成功 否则失败
+ **/
+int common_get_spechdplatform(char *platformName, int max_len);
+
 #ifdef  __cplusplus
 }
 #endif

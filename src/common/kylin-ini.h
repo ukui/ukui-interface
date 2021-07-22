@@ -22,6 +22,15 @@
 #include <stdio.h>
 #include <string.h>
 
+// 去除尾部空格
+char *rtrim(char *str, int containQuot);
+
+// 去除头部空格
+char *ltrim(char *str, int containQuot);
+
+// 去除前后空格
+char *trim(char *str, int containQuot);
+
 int getIniKeyString(const char *filename, const char *session, const char *key, char *value, int value_max_len);
 
 int setIniKeyString(const char *filename, const char *session, const char *key, char *value);

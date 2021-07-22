@@ -36,52 +36,6 @@
 #define PROJECT_CODENAME    "PROJECT_CODENAME"
 #define CPUINFO_MODELNAME      "model name"
 
-//去除尾部空白字符 包括\t \n \r  
-/*
-标准的空白字符包括：
-' '     (0x20)    space (SPC) 空格符
-'\t'    (0x09)    horizontal tab (TAB) 水平制表符    
-'\n'    (0x0a)    newline (LF) 换行符
-'\v'    (0x0b)    vertical tab (VT) 垂直制表符
-'\f'    (0x0c)    feed (FF) 换页符
-'\r'    (0x0d)    carriage return (CR) 回车符
-//windows \r\n linux \n mac \r
-*/ 
-static char *rtrim(char *str)
-{
-    if(str == NULL || *str == '\0') {
-        return str;
-    }
-    int len = strlen(str);
-    char *p = str + len - 1;
-    while(p >= str && (isspace(*p) || *p == '\"')) {
-        *p = '\0'; --p;
-    }
-    return str;
-}
-
-//去除首部空格 
-static char *ltrim(char *str)
-{
-    if(str == NULL || *str == '\0') {
-        return str;
-    }
-    int len = 0;
-    char *p = str;
-    while(*p != '\0' && (isspace(*p) || *p == '\"')) { 
-        ++p; ++len;
-    }
-    memmove(str, p, strlen(str) - len + 1);
-    return str;
-}
-
-//去除首尾空格
-static char *trim(char *str)
-{
-    str = rtrim(str);
-    str = ltrim(str);
-    return str;
-}
 
 // 根据key获取value，成功返回 >0 否则 返回 <= 0
 static int file_get_keyvalue(const char *path, const char *key, char *value, int value_max_len, const char chSplit)
@@ -167,7 +121,7 @@ static int file_get_keyvalue(const char *path, const char *key, char *value, int
 			value[value_len] = '\0';
 			
 			/* 去掉结尾的换行符 */
-            trim(value);
+            trim(value, 1);
 		} else {
 			value[0] = '\0';
 		}
@@ -215,4 +169,15 @@ int common_get_kyinfo(const char *session, const char *key, char *value, int val
 int common_get_cpumodelname(char *modelName, int max_len)
 {
     return file_get_keyvalue(CPUINFO_FILE, CPUINFO_MODELNAME, modelName, max_len, ':');
+}
+
+int common_get_spechdplatform(char *platformName, int max_len)
+{
+    if (platformName == NULL || max_len <= 0)
+        return -1;
+    char strDefault[] = "default";
+    int validLen = strlen(strDefault);
+    validLen = validLen > max_len ? max_len : validLen;
+    strncpy(platformName, strDefault, validLen);
+    return validLen;
 }
