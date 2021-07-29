@@ -1,2 +1,2 @@
-usr/lib/ukui-interface/ukui-fontserver
+usr/libexec/ukui-fontserver
 usr/share/dbus-1/services/cn.kylinos.font.service

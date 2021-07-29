@@ -1,2 +1,2 @@
-usr/lib/ukui-interface/ukui-sessionserver
+usr/libexec/ukui-sessionserver
 usr/share/dbus-1/services/cn.kylinos.session.service

@@ -1,3 +1,4 @@
 usr/include/ukuisdk/kylin-power-interface.h
 usr/lib/*/libukui-powerclient.a
+usr/lib/*/libukui-powerclient.la
 usr/lib/*/libukui-powerclient.so

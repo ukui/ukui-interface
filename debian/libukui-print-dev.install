@@ -1,3 +1,4 @@
 usr/include/ukuisdk/kylin-print.h
 usr/lib/*/libukui-print.a
+usr/lib/*/libukui-print.la
 usr/lib/*/libukui-print.so

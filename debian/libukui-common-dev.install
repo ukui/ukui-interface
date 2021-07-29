@@ -1,0 +1,4 @@
+usr/include/ukuisdk/kylin-common.h
+usr/lib/*/libukui-common.a
+usr/lib/*/libukui-common.la
+usr/lib/*/libukui-common.so

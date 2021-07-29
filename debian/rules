@@ -20,11 +20,12 @@ override_dh_install:
 	mkdir -p $(QT_INSTALL_DIR) && \
 	make install INSTALL_ROOT=$(QT_INSTALL_DIR) -C $(LOG4QT_BUILD_DIR)
 	dh_install
+	sed -i "/dependency_libs/ s/'.*'/''/" `find . -name '*.la'`
 
 override_dh_auto_configure:
 	./autogen.sh
 	dh_auto_configure -- \
-		--includedir=/usr/include/ukuisdk --bindir=/usr/lib/ukui-interface
+		--includedir=/usr/include/ukuisdk --bindir=/usr/libexec
 
 override_dh_auto_build:
 	dh_auto_build

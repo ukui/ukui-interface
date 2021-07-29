@@ -1,8 +1,0 @@
-libukui-datesetting.so.0 libukui-datesetting0 #MINVER#
-* Build-Depends-Package: libukui-datesetting-dev
- init_timedb@Base 1.0.0
- kylin_date_dt_chgdt@Base 1.0.0
- kylin_date_dt_sethrfmt@Base 1.0.0
- kylin_date_dt_setnetsync@Base 1.0.0
- kylin_date_dt_settz@Base 1.0.0
- timedata@Base 1.0.0

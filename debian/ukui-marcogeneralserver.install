@@ -1,2 +1,2 @@
-usr/lib/ukui-interface/ukui-marcogeneralserver
+usr/libexec/ukui-marcogeneralserver
 usr/share/dbus-1/services/cn.kylinos.marcogeneral.service
