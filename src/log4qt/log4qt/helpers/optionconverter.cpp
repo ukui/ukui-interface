@@ -100,7 +100,7 @@ namespace Log4Qt
                 end = value.indexOf(end_subst, i + begin_length);
                 if (end == -1)
                 {
-                    LogError e = LOG4QT_ERROR(QT_TR_NOOP("Missing closing bracket for opening bracket at %1. Invalid subsitution in value %2."), 
+                    LogError e = LOG4QT_ERROR(QT_TR_NOOP("Missing closing bracket for opening bracket at %1. Invalid substitution in value %2."),
                                               CONFIGURATOR_INVALID_SUBSTITUTION_ERROR,
                                               "Log4Qt::OptionConverter");
                     e << begin << value;
