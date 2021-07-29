@@ -1,8 +1,8 @@
-ukui-interface (1.0.1.1-1) focal; urgency=medium
+ukui-interface (1.0.2-1) experimental; urgency=medium
 
   * New upstream release.
 
- -- handsome_feng <jianfengli@ubuntukylin.com>  Thu, 17 Jun 2021 15:23:30 +0800
+ -- handsome_feng <jianfengli@ubuntukylin.com>  Thu, 29 Jul 2021 11:51:46 +0800
 
 ukui-interface (1.0.0-2) unstable; urgency=low
 
