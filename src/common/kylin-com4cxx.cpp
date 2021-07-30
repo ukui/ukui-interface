@@ -16,11 +16,12 @@
  *
  */
 
-#include "kylin-common.h"
+#include "kylin-com4cxx.h"
 #include <string.h>
 #include <stdlib.h>
 #include <ctype.h>
 #include <unistd.h>
+#include <iniparser/iniparser.h>
 
 #include "kylin-ini.h"
 
@@ -30,12 +31,12 @@
 #define CPUINFO_FILE "/proc/cpuinfo"	        /* cpuinfo文件路径 */
 #define RELEASEFILE_LINE_MAX		256			/* 最大解析行行数 */
 #define RELEASEFILE_LINE_MAX_LEN	256		    /* 最大解析行长度 */
-#define RELEASEFILE_KEY_MAX_LEN		64			/* 最大key长度 */ 
+#define RELEASEFILE_KEY_MAX_LEN		128			/* 最大key长度 */ 
 #define RELEASEFILE_VALUE_MAX_LEN	256         /* 最大value长度 预留'\0', '='*/
-#define RELEASEFILE_SPLIT_CHAR		'='			/* key和value的分隔符 */
+#define RELEASEFILE_SPLIT_EQUAL		'='			/* key和value的分隔符 */
+#define RELEASEFILE_SPLIT_COLON		':'			/* key和value的分隔符 */
 #define PROJECT_CODENAME    "PROJECT_CODENAME"
 #define CPUINFO_MODELNAME      "model name"
-
 
 // 根据key获取value，成功返回 >0 否则 返回 <= 0
 static int file_get_keyvalue(const char *path, const char *key, char *value, int value_max_len, const char chSplit)
@@ -117,11 +118,11 @@ static int file_get_keyvalue(const char *path, const char *key, char *value, int
 				value_len = value_max_len;
 			}
 			/* 拷贝value */ 
-			strncpy(value, &line_buf[key_len + 1], value_len);
+			snprintf(value, value_max_len, "%s", &line_buf[key_len + 1]);
 			value[value_len] = '\0';
 			
 			/* 去掉结尾的换行符 */
-            trim(value, 1);
+            strstrip(value, 1);
 		} else {
 			value[0] = '\0';
 		}
@@ -129,55 +130,94 @@ static int file_get_keyvalue(const char *path, const char *key, char *value, int
 	return ret;
 }
 
-int common_get_xdgsessiontype(char *xdgSessionType, int max_len)
+/**
+ * @fn KDKGetXdgSessionType
+ * @brief 获取区分x11与wayland的环境变量值
+ * @param None 无参
+ * @retval string xdg会话类型字符串,empty 失败，否则成功
+ */
+string KDKGetXdgSessionType()
 {
-    if (xdgSessionType == NULL || max_len <= 0)
-        return -1;
     char *strSessionType = getenv("XDG_SESSION_TYPE");
     if (!strSessionType) {
-        return -2;
+        return "";
     }
-    unsigned int nValidLen = max_len < strlen(strSessionType) ? max_len: strlen(strSessionType);
-    memcpy(xdgSessionType, strSessionType, nValidLen*sizeof(char));
-    return nValidLen;
+    return string(strSessionType);
 }
 
-int common_get_lsbrelease(const char *key, char *value, int value_max_len)
+string KDKGetLSBRelease(const string key)
 {
-    return file_get_keyvalue(LSB_RELEASE_FILE, key, value, value_max_len, RELEASEFILE_SPLIT_CHAR);
+	if (key.empty()) {
+		return "";
+	}
+	dictionary *iniHandle = iniparser_load(LSB_RELEASE_FILE);
+	if (iniHandle) {
+		string sessionKey = ":"+key;
+		string strValue = "";
+		strValue = iniparser_getstring(iniHandle, sessionKey.c_str(), "");
+		iniparser_freedict(iniHandle);
+		iniHandle = NULL;
+		return strValue;
+	}
+    return "";
 }
 
-int common_get_osrelease(const char *key, char *value, int value_max_len)
+string KDKGetOSRelease(const string key)
 {
-    return file_get_keyvalue(OS_RELEASE_FILE, key, value, value_max_len, RELEASEFILE_SPLIT_CHAR);
+	if (key.empty()) {
+		return "";
+	}
+	dictionary *iniHandle = iniparser_load(OS_RELEASE_FILE);
+	if (iniHandle) {
+		string sessionKey = ":"+key;
+		string strValue = "";
+		strValue = iniparser_getstring(iniHandle, sessionKey.c_str(), "");
+		iniparser_freedict(iniHandle);
+		iniHandle = NULL;
+		return strValue;
+	}
+    return "";
 }
 
-int common_get_prjcodename(char *value, int value_max_len)
+string KDKGetPrjCodeName()
 {
-    int nResult = common_get_lsbrelease(PROJECT_CODENAME, value, value_max_len);
-    if (nResult <= 0) {
-        nResult = common_get_osrelease(PROJECT_CODENAME, value, value_max_len);
+    string strValue = KDKGetLSBRelease(PROJECT_CODENAME);
+    if (strValue.empty()) {
+        strValue = KDKGetOSRelease(PROJECT_CODENAME);
     }
-    return nResult;
+    return strValue;
 }
 
-int common_get_kyinfo(const char *session, const char *key, char *value, int value_max_len)
+string KDKGetKYInfo(const string session, const string key)
 {
-    return getIniKeyString(KYINFO_FILE, session, key, value, value_max_len);
+	if (session.empty() || key.empty()) {
+		return "";
+	}
+	dictionary *iniHandle = iniparser_load(KYINFO_FILE);
+	if (iniHandle) {
+		string sessionKey = session+":"+key;
+		string strValue = "";
+		strValue = iniparser_getstring(iniHandle, sessionKey.c_str(), "");
+		iniparser_freedict(iniHandle);
+		iniHandle = NULL;
+		return strValue;
+	}
+    return "";
 }
 
-int common_get_cpumodelname(char *modelName, int max_len)
+string KDKGetCpuModelName()
 {
-    return file_get_keyvalue(CPUINFO_FILE, CPUINFO_MODELNAME, modelName, max_len, ':');
+	char strValue[256] = {0};
+    int nRet = file_get_keyvalue(CPUINFO_FILE, CPUINFO_MODELNAME, strValue, 256, RELEASEFILE_SPLIT_COLON);
+	if (nRet > 0) {
+		return string(strValue);
+	} else {
+		return "";
+	}
 }
 
-int common_get_spechdplatform(char *platformName, int max_len)
+string KDKGetSpecHDPlatform()
 {
-    if (platformName == NULL || max_len <= 0)
-        return -1;
-    char strDefault[] = "default";
-    int validLen = strlen(strDefault);
-    validLen = validLen > max_len ? max_len : validLen;
-    strncpy(platformName, strDefault, validLen);
-    return validLen;
+    string strDefaultValue = "default";
+    return strDefaultValue;
 }
