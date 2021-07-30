@@ -22,17 +22,21 @@
 #include <stdio.h>
 #include <string.h>
 
+#ifdef  __cplusplus
+extern "C" {
+#endif
+
 // 去除尾部空格
-char *rtrim(char *str, int containQuot);
+char *strstripr(char *str, int containQuot);
 
 // 去除头部空格
-char *ltrim(char *str, int containQuot);
+char *strstripl(char *str, int containQuot);
 
 // 去除前后空格
-char *trim(char *str, int containQuot);
+char *strstrip(char *str, int containQuot);
 
-int getIniKeyString(const char *filename, const char *session, const char *key, char *value, int value_max_len);
-
-int setIniKeyString(const char *filename, const char *session, const char *key, char *value);
+#ifdef  __cplusplus
+}
+#endif
 
 #endif //__KYLININI_H__

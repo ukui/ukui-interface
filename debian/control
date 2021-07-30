@@ -507,7 +507,7 @@ Description: log4qt interface
 
 Package: libukui-common0
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
+Depends: ${shlibs:Depends}, ${misc:Depends},libiniparser-dev
 Description: common module
  UKUI interface provides the interface for system configuration
  and related libraries.
