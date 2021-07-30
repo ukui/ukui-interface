@@ -10,7 +10,8 @@ Build-Depends: debhelper-compat (=12),
                libtool,
                qtbase5-dev,
                libgsettings-qt-dev,
-               qttools5-dev-tools
+               qttools5-dev-tools,
+               libiniparser-dev
 Standards-Version: 4.5.0
 Rules-Requires-Root: no
 Homepage: https://github.com/ukui/ukui-interface
@@ -507,7 +508,7 @@ Description: log4qt interface
 
 Package: libukui-common0
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends},libiniparser-dev
+Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: common module
  UKUI interface provides the interface for system configuration
  and related libraries.
