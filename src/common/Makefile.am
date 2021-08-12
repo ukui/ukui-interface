@@ -1,21 +1,40 @@
 #Generata binary file 
-lib_LTLIBRARIES  = libukui-print.la libukui-gsettings.la libukui-common.la
+lib_LTLIBRARIES  = libukui-print.la libukui-gsettings.la libukui-com4c.la libukui-com4cxx.la
 
 #gcc -wall: displays all the errors and warning information when compiling
 #gcc -g: add the debugging code when compiling 
 COMM_CFS = -Wall -g
 
-#Add the dependent source file for libukui-common.la
-libukui_common_la_SOURCES = kylin-common.c \
+#Add the dependent source file for libukui-com4c.la
+libukui_com4c_la_SOURCES = kylin-com4c.c \
     kylin-ini.c \
 	$(NULL)
 
 #Additional C compiler flags
-libukui_common_la_CFLAGS=  $(COMM_CFS) \
+libukui_com4c_la_CFLAGS=  $(COMM_CFS) \
+        -liniparser \
         $(NULL)
 
 #Additional link objects
-libukui_common_la_LDFLAGS= \
+libukui_com4c_la_LDFLAGS= \
+        $(NULL)
+
+#Add the dependent source file for libukui-com4cxx.la
+libukui_com4cxx_la_SOURCES = kylin-com4cxx.cpp \
+    kylin-ini.c \
+	$(NULL)
+
+#Additional CXX compiler flags
+libukui_com4cxx_la_CXXFLAGS=  $(COMM_CFS) \
+        -liniparser \
+        $(NULL)
+
+#Additional C compiler flags
+libukui_com4cxx_la_CFLAGS=  $(COMM_CFS) \
+        $(NULL)
+
+#Additional link objects
+libukui_com4cxx_la_LDFLAGS= \
         $(NULL)
 
 #Add the dependent source file for libukui-print.la
@@ -28,7 +47,8 @@ libukui_gsettings_la_SOURCES = kylin-gsettings-set.c \
 
 #The header files that need to be installed
 include_HEADERS= \
-	kylin-common.h \
+        kylin-com4c.h \
+	kylin-com4cxx.h \
 	kylin-print.h \
 	kylin-gsettings-set.h \
 	$(NULL)

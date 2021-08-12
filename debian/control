@@ -10,7 +10,8 @@ Build-Depends: debhelper-compat (=12),
                libtool,
                qtbase5-dev,
                libgsettings-qt-dev,
-               qttools5-dev-tools
+               qttools5-dev-tools,
+               libiniparser-dev
 Standards-Version: 4.5.0
 Rules-Requires-Root: no
 Homepage: https://github.com/ukui/ukui-interface

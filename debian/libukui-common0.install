@@ -1,1 +1,2 @@
-usr/lib/*/libukui-common.so.*
+usr/lib/*/libukui-com4c.so.*
+usr/lib/*/libukui-com4cxx.so.*
