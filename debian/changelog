@@ -1,15 +1,13 @@
-ukui-interface (1.0.2-1) experimental; urgency=medium
+ukui-interface (1.0.1-1) unstable; urgency=medium
 
+  [ handsome_feng ]
   * New upstream release.
 
- -- handsome_feng <jianfengli@ubuntukylin.com>  Thu, 29 Jul 2021 11:51:46 +0800
-
-ukui-interface (1.0.0-2) unstable; urgency=low
-
+  [ Debian Janior ]
   * Set upstream metadata fields: Bug-Database, Bug-Submit.
   * Update standards version to 4.5.0, no changes needed.
 
- -- Debian Janitor <janitor@jelmer.uk>  Thu, 11 Jun 2020 02:24:40 -0000
+ -- handsome_feng <jianfengli@ubuntukylin.com>  Thu, 29 Jul 2021 11:51:46 +0800
 
 ukui-interface (1.0.0-1) unstable; urgency=medium
 
