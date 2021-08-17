@@ -1,3 +1,0 @@
-Test-Command: testlog4qt.sh
-Depends: libukui-log4qt-dev
-Restrictions:
