@@ -486,8 +486,6 @@ Description: xkbgeneral settings service process
 Package: libukui-log4qt1
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}, libglib2.0-bin
-Suggests: libukui-log4qt0
-Replaces: libukui-log4qt0
 Description: log4qt module
  UKUI interface provides the interface for system configuration
  and related libraries.
