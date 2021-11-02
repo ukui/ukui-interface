@@ -1,3 +1,9 @@
+ukui-interface (1.0.1-2) unstable; urgency=medium
+
+  * Source only upload for migration to testing.
+
+ -- handsome_feng <jianfengli@ubuntukylin.com>  Tue, 02 Nov 2021 14:53:40 +0800
+
 ukui-interface (1.0.1-1) unstable; urgency=medium
 
   [ handsome_feng ]
