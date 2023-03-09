@@ -1,3 +1,4 @@
 usr/include/ukuisdk/kylin-screensaver-interface.h
 usr/lib/*/libukui-screensaverclient.a
+usr/lib/*/libukui-screensaverclient.la
 usr/lib/*/libukui-screensaverclient.so

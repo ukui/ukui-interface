@@ -1,5 +1,5 @@
 NULL =
 
-SUBDIRS = accounts common date hardware language network os \
-	other personal security software updates \
+SUBDIRS = accounts common hardware language network \
+	other personal security updates \
 	$(NULL)

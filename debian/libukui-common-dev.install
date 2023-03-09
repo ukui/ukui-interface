@@ -1,0 +1,8 @@
+usr/include/ukuisdk/kylin-com4c.h
+usr/include/ukuisdk/kylin-com4cxx.h
+usr/lib/*/libukui-com4c.a
+usr/lib/*/libukui-com4cxx.a
+usr/lib/*/libukui-com4c.la
+usr/lib/*/libukui-com4cxx.la
+usr/lib/*/libukui-com4c.so
+usr/lib/*/libukui-com4cxx.so
