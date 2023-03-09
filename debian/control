@@ -21,6 +21,7 @@ Vcs-Git: https://github.com/ukui/ukui-interface.git
 Package: libukui-print0
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
+Multi-Arch: same
 Description: print module
  UKUI interface provides the interface for system configuration
  and related libraries.
@@ -41,6 +42,7 @@ Description: print interface
 Package: libukui-gsettings0
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
+Multi-Arch: same
 Description: application settings module
  UKUI interface provides the interface for system configuration
  and related libraries.
@@ -303,6 +305,7 @@ Description: mouse settings interfaces
 Package: libukui-network0
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
+Multi-Arch: same
 Description: network settings module
  UKUI interface provides the interface for system configuration
  and related libraries.
@@ -457,6 +460,7 @@ Description: touchpad settings interfaces
 Package: libukui-usersetting0
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
+Multi-Arch: same
 Description: user settings module
  UKUI interface provides the interface for system configuration
  and related libraries.
@@ -509,6 +513,7 @@ Description: log4qt interface
 Package: libukui-common0
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
+Multi-Arch: same
 Description: common module
  UKUI interface provides the interface for system configuration
  and related libraries.
